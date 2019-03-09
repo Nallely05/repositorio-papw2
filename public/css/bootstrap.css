@@ -74,19 +74,6 @@
   border-radius: 50%;
 }
 
-.FotoDePerfil2 {
-  top: 238px;
-  left: 27px;
-  z-index: 1;
-  border-width: 4px;
-  border-style: solid;
-  border-color: white;
-  width: 180px;
-  height: 180px; 
-  object-fit: cover;
-  border-radius: 50%;
-}
-
 .txtEscribir{
   height: 800px;
   border-radius: 3%;
@@ -422,6 +409,7 @@ caption {
 
 th {
   text-align: inherit;
+  padding: 5%;
   
 }
 

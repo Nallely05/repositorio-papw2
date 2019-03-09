@@ -1,11 +1,9 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 The Bootstrap Authors
  * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
-
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
@@ -20,9 +18,9 @@
   --white: #fff;
   --gray: #6c757d;
   --gray-dark: #343a40;
-  --primary: rgb(102, 59, 201);
+  --primary: #007bff;
   --secondary: #6c757d;
-  --success: #8328a7;/*#28a745*/
+  --success: #28a745;
   --info: #17a2b8;
   --warning: #ffc107;
   --danger: #dc3545;
@@ -43,202 +41,6 @@
   box-sizing: border-box;
 }
 
-.Headerbtn-group{
-  position: fixed;
-  z-index: 1;
-  width: 100%;
-  background-color: #f1f1f1;
-}
-
-.card-img1{
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  padding: 1.25rem;
-  object-fit: cover;
-}
-
-.FotoDePerfil {
-  position: absolute;
-  top: 238px;
-  left: 27px;
-  z-index: 1;
-  border-width: 4px;
-  border-style: solid;
-  border-color: white;
-  width: 180px;
-  height: 180px; 
-  object-fit: cover;
-  border-radius: 50%;
-}
-
-.FotoDePerfil2 {
-  top: 238px;
-  left: 27px;
-  z-index: 1;
-  border-width: 4px;
-  border-style: solid;
-  border-color: white;
-  width: 180px;
-  height: 180px; 
-  object-fit: cover;
-  border-radius: 50%;
-}
-
-.txtEscribir{
-  height: 800px;
-  border-radius: 3%;
-  border-color: rgb(233, 227, 227);
-}
-
-#myBtnUp {
-  display: none; /* Hidden by default */
-  position: fixed; /* Fixed/sticky position */
-  /*bottom: 120px;  Place the button at the bottom of the page */
-  top: 50%;
-  Right: 30px; /* Place the button 30px from the left */
-  z-index: 99; /* Make sure it does not overlap */
-  border: none; /* Remove borders */
-  outline: none; /* Remove outline */
-  background-color: rgb(143, 110, 219); /* Set a background color */
-  color: white; /* Text color */
-  cursor: pointer; /* Add a mouse pointer on hover */
-  padding: 15px; /* Some padding */
-  border-radius: 10px; /* Rounded corners */
-  font-size: 18px; /* Increase font size */
-}
-
-#myBtnUp:hover {
-  background-color: #555; /* Add a dark-grey background on hover */
-}
-
-.btnComentarios {
-  border: none; /* Remove borders */
-  outline: none; /* Remove outline */
-  background-color: rgb(143, 110, 219); /* Set a background color */
-  color: white; /* Text color */
-  padding: 10px; /* Some padding */
-  border-radius: 4px; /* Rounded corners */
-
-/*
-  color: rgb(102, 59, 201);
-  background-color: white;007bff
-  border-color: rgb(102, 59, 201);*/
-}
-
-#btnPublicar{
-  width: 80%;
-  margin:auto;
-}
-
-.btnComentarios:hover {
-  color: white;
-  background-color:rgb(102, 59, 201);
-  border-color: rgb(49, 22, 112);
-}
-
-.btnEnviarComentario{
-  border: none; /* Remove borders */
-  outline: none; /* Remove outline */
-  background-color: rgb(143, 110, 219); /* Set a background color */
-  color: white; /* Text color */
-  padding: 10px; /* Some padding */
-  border-radius: 7px; /* Rounded corners */
-}
-
-.btnComentarios:hover {
-  color: white;
-  background-color:rgb(102, 59, 201);
-  border-color: rgb(49, 22, 112);
-}
-
-
-.headerProgressBar{
-  position: fixed;
-  top: 0;
-  z-index: 1;
-  width: 100%;
-  background-color: #f1f1f1;
-}
-
-.btn-LecturaCaps{
-  border: none; /* Remove borders */
-  outline: none; /* Remove outline */
-  background-color: rgb(143, 110, 219); /* Set a background color */
-  color: white; /* Text color */
-  padding: 10px; /* Some padding */
-  border-radius: 10px; /* Rounded corners */
-}
-
-.btnComentarios:hover {
-  color: white;
-  background-color:rgb(102, 59, 201);
-  border-color: rgb(49, 22, 112);
-}
-
-/* The progress container (grey background) */
-.progress-container {
-  width: 100%;
-  height: 8px;
-  background: #ccc;
-}
-
-/* The progress bar (scroll indicator) */
-.progress-bar {
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  height: 8px;
-  background: rgb(102, 59, 201);
-  width: 0%;
-}
-
-#icnBuscar{
-  display: block;
-}
-#icnBuscar:hover{
-  color: white !important;
-}
-
-
-#icnUsuario{
-  display: block;
-}
-
-.ArrobaHispanofic{
-  display: block;
-  left: 100%;
-}
-
-.img-home{
-  margin: 0;
-    display:inline-block;
-    padding: 1rem 1rem;
-}
-
-#TextoLectura{
-  padding-left: 0.5rem;
-  padding-right: 1rem;
-}
-.FirstPage{
-  display: block;
-  top: 50%;
-  font-family: 'Roboto', sans-serif !important;
-  color: rgb(102, 59, 201);
-}
-
-.tablaPrincipal{
-  text-align: center;
-}
-
-.progress-bar {
-  height: 8px;
-  background: rgb(102, 59, 201);
-  width: 0%;
-}
-
 html {
   font-family: sans-serif;
   line-height: 1.15;
@@ -252,14 +54,13 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 
 body {
   margin: 0;
-  font-family: 'Roboto', sans-serif !important;
-  /*font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";*/
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: rgb(245, 236, 236);
+  color: #212529;
   text-align: left;
-  background-color: white;;
+  background-color: #fff;
 }
 
 [tabindex="-1"]:focus {
@@ -275,15 +76,11 @@ hr {
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
   margin-bottom: 0.5rem;
-  font-family: 'Roboto', sans-serif !important;
-  color: rgb(102, 59, 201);
 }
 
-
-p,table.tablaFooter a {
+p {
   margin-top: 0;
   margin-bottom: 1rem;
-  color: black;
 }
 
 abbr[title],
@@ -422,7 +219,6 @@ caption {
 
 th {
   text-align: inherit;
-  
 }
 
 label {
@@ -448,7 +244,6 @@ textarea {
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
-  
 }
 
 button,
@@ -459,31 +254,6 @@ input {
 button,
 select {
   text-transform: none;
-  border-color: white;
-  background-color: rgb(240, 236, 247);
-  border-width: 1.5pt;
-  border-radius: 5pt;
-  padding: 0.5%;
-}
-
-
-select:hover{
-  background-color: rgb(60, 114, 216);
-}
-
-#BtnBuscarPorFiltros{
-  display: inline;
-  font-family: 'Roboto', sans-serif !important;
-  font-size: 18px;
-  color: white;
-  background-color: rgb(102, 59, 201);
-  border-width: 1.5pt;
-  border-radius: 5pt;
-  padding-bottom: 0.1%;
-}
-
-#BtnBuscarPorFiltros:hover{
-  background-color: rgb(143, 110, 219);;
 }
 
 select {
@@ -708,8 +478,7 @@ mark,
 
 .img-fluid {
   max-width: 100%;
-  height: 100%;
-  width: 100%;
+  height: auto;
 }
 
 .img-thumbnail {
@@ -2309,7 +2078,7 @@ textarea.form-control {
 }
 
 .was-validated .form-control:valid, .form-control.is-valid {
-  border-color: #8328a7;
+  border-color: #28a745;
   padding-right: calc(1.5em + 0.75rem);
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%2328a745' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
   background-repeat: no-repeat;
@@ -2318,8 +2087,8 @@ textarea.form-control {
 }
 
 .was-validated .form-control:valid:focus, .form-control.is-valid:focus {
-  border-color: #8328a7;
-  box-shadow: 0 0 0 0.2rem rgba(127, 40, 167, 0.25);
+  border-color: #28a745;
+  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
 }
 
 .was-validated .form-control:valid ~ .valid-feedback,
@@ -2334,14 +2103,14 @@ textarea.form-control {
 }
 
 .was-validated .custom-select:valid, .custom-select.is-valid {
-  border-color: #8328a7;
+  border-color: #28a745;
   padding-right: calc((1em + 0.75rem) * 3 / 4 + 1.75rem);
   background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right 0.75rem center/8px 10px, url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%2328a745' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e") #fff no-repeat center right 1.75rem/calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
 }
 
 .was-validated .custom-select:valid:focus, .custom-select.is-valid:focus {
-  border-color: #8328a7;
-  box-shadow: 0 0 0 0.2rem rgba(127, 40, 167, 0.25);
+  border-color: #28a745;
+  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
 }
 
 .was-validated .custom-select:valid ~ .valid-feedback,
@@ -2357,7 +2126,7 @@ textarea.form-control {
 }
 
 .was-validated .form-check-input:valid ~ .form-check-label, .form-check-input.is-valid ~ .form-check-label {
-  color: #8328a7;
+  color: #28a745;
 }
 
 .was-validated .form-check-input:valid ~ .valid-feedback,
@@ -2367,11 +2136,11 @@ textarea.form-control {
 }
 
 .was-validated .custom-control-input:valid ~ .custom-control-label, .custom-control-input.is-valid ~ .custom-control-label {
-  color: #8328a7;
+  color: #28a745;
 }
 
 .was-validated .custom-control-input:valid ~ .custom-control-label::before, .custom-control-input.is-valid ~ .custom-control-label::before {
-  border-color: #8328a7;
+  border-color: #28a745;
 }
 
 .was-validated .custom-control-input:valid ~ .valid-feedback,
@@ -2651,15 +2420,15 @@ fieldset:disabled a.btn {
 }
 
 .btn-primary {
-  color: rgb(102, 59, 201);
-  background-color: white;/*007bff*/
-  border-color: rgb(102, 59, 201);
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
 }
 
 .btn-primary:hover {
   color: #fff;
-  background-color: rgb(49, 22, 112);
-  border-color: white;
+  background-color: #0069d9;
+  border-color: #0062cc;
 }
 
 .btn-primary:focus, .btn-primary.focus {
@@ -2668,15 +2437,15 @@ fieldset:disabled a.btn {
 
 .btn-primary.disabled, .btn-primary:disabled {
   color: #fff;
-  background-color: rgb(143, 110, 219);;
-  border-color: rgb(143, 110, 219);;
+  background-color: #007bff;
+  border-color: #007bff;
 }
 
 .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
 .show > .btn-primary.dropdown-toggle {
   color: #fff;
-  background-color: #8328a7;
-  border-color: rgb(143, 110, 219);;
+  background-color: #0062cc;
+  border-color: #005cbf;
 }
 
 .btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus,
@@ -2684,16 +2453,16 @@ fieldset:disabled a.btn {
   box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
 }
 
-.ondary {
+.btn-secondary {
   color: #fff;
-  background-color:  rgb(121, 71, 238);
-  border-color:  rgb(102, 59, 201);
+  background-color: #6c757d;
+  border-color: #6c757d;
 }
 
 .btn-secondary:hover {
   color: #fff;
-  background-color: rgb(102, 59, 201);
-  border-color: rgb(121, 71, 238);
+  background-color: #5a6268;
+  border-color: #545b62;
 }
 
 .btn-secondary:focus, .btn-secondary.focus {
@@ -2702,67 +2471,66 @@ fieldset:disabled a.btn {
 
 .btn-secondary.disabled, .btn-secondary:disabled {
   color: #fff;
-  background-color: rgb(121, 71, 238);
-  border-color: rgb(121, 71, 238);
+  background-color: #6c757d;
+  border-color: #6c757d;
 }
 
 .btn-secondary:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active,
 .show > .btn-secondary.dropdown-toggle {
   color: #fff;
-  background-color: rgb(121, 71, 238);
-  border-color: rgb(121, 71, 238);
+  background-color: #545b62;
+  border-color: #4e555b;
 }
 
 .btn-secondary:not(:disabled):not(.disabled):active:focus, .btn-secondary:not(:disabled):not(.disabled).active:focus,
 .show > .btn-secondary.dropdown-toggle:focus {
-  box-shadow: 0 0 0 0.2rem rgba(121, 71, 238, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(130, 138, 145, 0.5);
 }
 
 .btn-success {
   color: #fff;
-  background-color: #8328a7;
-  border-color: #8328a7;
+  background-color: #28a745;
+  border-color: #28a745;
 }
 
 .btn-success:hover {
   color: #fff;
-  background-color: #8328a7;
-  border-color: #a72828;
+  background-color: #218838;
+  border-color: #1e7e34;
 }
 
 .btn-success:focus, .btn-success.focus {
-  box-shadow: 0 0 0 0.2rem rgba(180, 72, 72, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(72, 180, 97, 0.5);
 }
 
 .btn-success.disabled, .btn-success:disabled {
   color: #fff;
-  background-color: #a72828;
-  border-color: #a72828;
+  background-color: #28a745;
+  border-color: #28a745;
 }
 
 .btn-success:not(:disabled):not(.disabled):active, .btn-success:not(:disabled):not(.disabled).active,
 .show > .btn-success.dropdown-toggle {
   color: #fff;
-  background-color: #7e1e1e;
-  border-color: #741c1c;
+  background-color: #1e7e34;
+  border-color: #1c7430;
 }
 
 .btn-success:not(:disabled):not(.disabled):active:focus, .btn-success:not(:disabled):not(.disabled).active:focus,
 .show > .btn-success.dropdown-toggle:focus {
-  box-shadow: 0 0 0 0.2rem rgba(180, 72, 72, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(72, 180, 97, 0.5);
 }
 
 .btn-info {
-  display: inline;
   color: #fff;
-  background-color: #8cd8e4;
-  border-color: #8cd8e4;
+  background-color: #17a2b8;
+  border-color: #17a2b8;
 }
 
 .btn-info:hover {
   color: #fff;
-  background-color: #28b0c5;
-  border-color: #28b0c5;
+  background-color: #138496;
+  border-color: #117a8b;
 }
 
 .btn-info:focus, .btn-info.focus {
@@ -2923,22 +2691,31 @@ fieldset:disabled a.btn {
   box-shadow: 0 0 0 0.2rem rgba(82, 88, 93, 0.5);
 }
 
+.btn-outline-primary {
+  color: #007bff;
+  border-color: #007bff;
+}
 
+.btn-outline-primary:hover {
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+}
 
 .btn-outline-primary:focus, .btn-outline-primary.focus {
   box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
 }
 
 .btn-outline-primary.disabled, .btn-outline-primary:disabled {
-  color: rgb(102, 59, 201);
+  color: #007bff;
   background-color: transparent;
 }
 
 .btn-outline-primary:not(:disabled):not(.disabled):active, .btn-outline-primary:not(:disabled):not(.disabled).active,
 .show > .btn-outline-primary.dropdown-toggle {
   color: #fff;
-  background-color: rgb(143, 110, 219);
-  border-color: rgb(143, 110, 219);
+  background-color: #007bff;
+  border-color: #007bff;
 }
 
 .btn-outline-primary:not(:disabled):not(.disabled):active:focus, .btn-outline-primary:not(:disabled):not(.disabled).active:focus,
@@ -2979,35 +2756,35 @@ fieldset:disabled a.btn {
 }
 
 .btn-outline-success {
-  color: #8328a7;
-  border-color: #8328a7;
+  color: #28a745;
+  border-color: #28a745;
 }
 
 .btn-outline-success:hover {
-  color: #fff !important;
-  background-color: rgb(130, 105, 189) !important;
-  border-color: #8328a7 !important;
+  color: #fff;
+  background-color: #28a745;
+  border-color: #28a745;
 }
 
 .btn-outline-success:focus, .btn-outline-success.focus {
-  box-shadow: 0 0 0 0.2rem #8328a7;
+  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.5);
 }
 
 .btn-outline-success.disabled, .btn-outline-success:disabled {
-  color: #3b1649;
+  color: #28a745;
   background-color: transparent;
 }
 
 .btn-outline-success:not(:disabled):not(.disabled):active, .btn-outline-success:not(:disabled):not(.disabled).active,
 .show > .btn-outline-success.dropdown-toggle {
   color: #fff;
-  background-color: #9a30c4;
-  border-color: #8328a7;
+  background-color: #28a745;
+  border-color: #28a745;
 }
 
 .btn-outline-success:not(:disabled):not(.disabled):active:focus, .btn-outline-success:not(:disabled):not(.disabled).active:focus,
 .show > .btn-outline-success.dropdown-toggle:focus {
-  box-shadow: 0 0 0 0.2rem #8328a7;
+  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.5);
 }
 
 .btn-outline-info {
@@ -3172,12 +2949,12 @@ fieldset:disabled a.btn {
 
 .btn-link {
   font-weight: 400;
-  color: rgb(143, 110, 219);;
+  color: #007bff;
   text-decoration: none;
 }
 
 .btn-link:hover {
-  color: rgb(82, 56, 145);;
+  color: #0056b3;
   text-decoration: underline;
 }
 
@@ -4281,14 +4058,11 @@ input[type="button"].btn-block {
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
-  font-family: 'Roboto', sans-serif !important;
 }
 
 .nav-link {
   display: block;
   padding: 0.5rem 1rem;
-  color: white;
-  font-size: 20px;
 }
 
 .nav-link:hover, .nav-link:focus {
@@ -4345,7 +4119,7 @@ input[type="button"].btn-block {
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
   color: #fff;
-  background-color: #ba85eb;
+  background-color: #007bff;
 }
 
 .nav-fill .nav-item {
@@ -4721,12 +4495,10 @@ input[type="button"].btn-block {
 
 .navbar-light .navbar-text a {
   color: rgba(0, 0, 0, 0.9);
-  
 }
 
 .navbar-light .navbar-text a:hover, .navbar-light .navbar-text a:focus {
   color: rgba(0, 0, 0, 0.9);
-  
 }
 
 .navbar-dark .navbar-brand {
@@ -4775,10 +4547,6 @@ input[type="button"].btn-block {
 
 .navbar-dark .navbar-text a:hover, .navbar-dark .navbar-text a:focus {
   color: #fff;
-}
-
-#navPrincipal{
-  background-color: rgb(102, 59, 201);
 }
 
 .card {
@@ -4885,18 +4653,13 @@ input[type="button"].btn-block {
 
 .card-img {
   width: 100%;
-  object-fit: cover;
   border-radius: calc(0.25rem - 1px);
 }
 
 .card-img-top {
-  width: 200px; 
-  height: 400px;
   width: 100%;
-  object-fit: cover;
   border-top-left-radius: calc(0.25rem - 1px);
   border-top-right-radius: calc(0.25rem - 1px);
-
 }
 
 .card-img-bottom {
@@ -5232,7 +4995,7 @@ a.badge-secondary:focus, a.badge-secondary.focus {
 
 .badge-success {
   color: #fff;
-  background-color: rgb(143, 110, 219);/*#28a745*/
+  background-color: #28a745;
 }
 
 a.badge-success:hover, a.badge-success:focus {
@@ -6765,7 +6528,7 @@ button.bg-secondary:focus {
 }
 
 .bg-success {
-  background-color: rgb(143, 110, 219) !important;
+  background-color: #28a745 !important;
 }
 
 a.bg-success:hover, a.bg-success:focus,
@@ -6881,7 +6644,7 @@ button.bg-dark:focus {
 }
 
 .border-success {
-  border-color: rgb(143, 110, 219) !important;
+  border-color: #28a745 !important;
 }
 
 .border-info {
@@ -7345,7 +7108,6 @@ button.bg-dark:focus {
 }
 
 .align-self-start {
-  object-fit: cover;
   -ms-flex-item-align: start !important;
   align-self: flex-start !important;
 }
@@ -10087,7 +9849,7 @@ button.bg-dark:focus {
 }
 
 .text-primary {
-  color: rgb(102, 59, 201) !important;
+  color: #007bff !important;
 }
 
 a.text-primary:hover, a.text-primary:focus {
@@ -10103,7 +9865,7 @@ a.text-secondary:hover, a.text-secondary:focus {
 }
 
 .text-success {
-  color: rgb(143, 110, 219) !important;
+  color: #28a745 !important;
 }
 
 a.text-success:hover, a.text-success:focus {

@@ -12,5 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('landingpage');
+});
+
+Route::get('/perfil', function () {
+    return view('perfil');
 });
