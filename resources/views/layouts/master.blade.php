@@ -22,41 +22,25 @@
     </head>
 <body>
 <!--NAVBAR-->
-    <div class="container-fluid">
-        <nav id="NavPrincipal"class="navbar navbar-expand-sm" style="background: rgb(102, 59, 201);">
-                    <a class="navbar-brand" href="#">
-                        <img src="../Images/iconoPeque1.png" width="40" height="40" alt="">
-                    </a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon">:v</span>
-                    </button>
-                           
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">     
-            <ul class="nav justify-content-end">
-                <li class="nav-item">
-                        <a class="nav-link" href="#">Acerca de nosotros</a>
-                </li>
-                <li class="nav-item">
-                        <a class="nav-link" href="#">Iniciar sesión</a>
-                </li>
-                <li class="nav-item">
-                        <a class="nav-link" href="#">Política de privacidad</a>
-                </li>
-                <li class="nav-item"><span></span></li>
-                <form class="form-inline my-2 my-lg-0">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Buscar por titulo" aria-label="Search">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit"> <a class="nav-link" href="#"><i class="fas fa-search" id="icnBuscar"></i></a> 
-                        </button>
-                </form>
-                </li>
-                <li clas="nav-item"> <a class="nav-link" href="#"><i class="fas fa-user" id="icnUsuario"></i></a> 
-                </li>
-            </ul>
-           
-    </div>
-        </nav>
-    </div>
+<div class="container-fluid">
+                    <nav id="NavPrincipal"class="navbar navbar-expand-sm" style="background: rgb(102, 59, 201);">
+                        <div class="container">    
+                        <a class="navbar-brand" href="#">
+                              <img src="../Images/iconoPeque1.png" width="30" height="30" alt="">
+                            </a>            
+                    <ul class="nav justify-content-end">
+                        <li class="nav-item">
+                              <a class="nav-link" href="#">Acerca de nosotros</a>
+                        </li>
+                        <li class="nav-item">
+                              <a class="nav-link" href="#">Iniciar sesión</a>
+                            </li>
+                        <li clas="nav-item"> <a class="nav-link" href="#"><i class="fas fa-search" id="icnBuscar"></i></a> </li>
+                    </ul>
+                </div>
+                    </nav>
+                </div>
+
 <!--CONTENIDO-->
     <br>
     <div class="container-fluid">
