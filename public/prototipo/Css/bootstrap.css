@@ -154,6 +154,32 @@
   border-color: rgb(49, 22, 112);
 }
 
+#btnCrearHistoria{
+  position: absolute;
+  left: 88%;
+  top: 86%;
+  background-color: white; /* Set a background color */
+  color: rgb(70, 69, 71); /* Text color */
+  padding: 10px; /* Some padding */
+  border-radius: 7px; /* Rounded corners */
+}
+
+#btnCrearHistoria:hover{
+  position: absolute;
+  left: 88%;
+  top: 86%;
+  background-color: rgb(102, 59, 201); /* Set a background color */
+  color: white; /* Text color */
+  padding: 10px; /* Some padding */
+  border-radius: 7px; /* Rounded corners */
+}
+
+#btnAgregarCapítulo{
+  background-color: rgb(102, 59, 201); /* Set a background color */
+  color: rgb(255, 255, 255); /* Text color */
+  padding: 10px; /* Some padding */
+  border-radius: 7px; /* Rounded corners */
+}
 
 .headerProgressBar{
   position: fixed;
@@ -782,6 +808,10 @@ pre code {
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+}
+
+.container1 {
+  margin-left: 50%;
 }
 
 @media (min-width: 576px) {

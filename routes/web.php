@@ -18,3 +18,51 @@ Route::get('/', function () {
 Route::get('/perfil', function () {
     return view('perfil');
 });
+
+Route::post('/perfil', function () {
+    return view('perfil');
+});
+
+Route::get('/CrearCuenta', function () {
+    return view('CrearCuenta');
+});
+
+Route::post('/CrearCuenta', function () {
+    return view('CrearCuenta');
+});
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+});
+
+Route::get('/Escribir', function () {
+    return view('EscribirCap');
+});
+
+Route::get('/lectura', function () {
+    return view('lectura');
+});
+
+Route::get('/politica', function () {
+    return view('politica');
+});
+
+Route::get('/Buscar', function () {
+    return view('Buscar');/*Resultados*/
+});
+
+Route::get('/sesion', function () {
+    return view('sesion');
+});
+
+Route::post('/sesion', function () {
+    return view('sesion');
+});
+
+Route::get('/SobreNosotros', function () {
+    return view('SobreNosotros');
+});
+
+Route::get('/admin', function () {
+    return view('admin');
+});

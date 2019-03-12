@@ -1,11 +1,9 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <title> Buscar </title>
+        <title>  @yield('title') </title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!--<link rel="stylesheet" type="text/css" href="../CSS/Principal_Style.css">-->
-         <!--<script type="text/javascript" src="../Js/Principal.js"></script>-->
         <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
         <script type="text/javascript" src="js/bootstrap.js"></script>
         <link rel="shortcut icon" href="../Images/favicon.ico"/>
@@ -21,25 +19,7 @@
 
     </head>
 <body>
-<!--NAVBAR-->
-<div class="container-fluid">
-                    <nav id="NavPrincipal"class="navbar navbar-expand-sm" style="background: rgb(102, 59, 201);">
-                        <div class="container">    
-                        <a class="navbar-brand" href="#">
-                              <img src="../Images/iconoPeque1.png" width="30" height="30" alt="">
-                            </a>            
-                    <ul class="nav justify-content-end">
-                        <li class="nav-item">
-                              <a class="nav-link" href="#">Acerca de nosotros</a>
-                        </li>
-                        <li class="nav-item">
-                              <a class="nav-link" href="#">Iniciar sesión</a>
-                            </li>
-                        <li clas="nav-item"> <a class="nav-link" href="#"><i class="fas fa-search" id="icnBuscar"></i></a> </li>
-                    </ul>
-                </div>
-                    </nav>
-                </div>
+@include('navbarNormal')
 
 <!--CONTENIDO-->
     <br>
@@ -49,16 +29,15 @@
     
                
 <br>
-    
-       
+
 <!--FOOTER-->
 <div class="container-fluid">
-            <footer>
-                <table class="navbar navbar-expand-lg navbar-light bg-light" style="width:100%">  
-                    <td><p class="ArrobaHispanofic">© Hispanofic 2019</p></td>
-                </table>
-            </footer>
+        <footer>
+            <table class="navbar navbar-expand-lg navbar-light bg-light" style="width:100%">  
+                <td><p class="ArrobaHispanofic">© Hispanofic 2019 &nbsp;<a href="/politica">Política de privacidad</a></p></td>
+                
+            </table>
+        </footer>
     </div>
-</body>
-
+    </body>
 </html>
