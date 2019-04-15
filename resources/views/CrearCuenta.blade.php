@@ -7,12 +7,13 @@
     <div class="card">
         <section class="container">
                 <br><br>
-                <form>
+                <form  method="POST" action="{{ route('register') }}">
+                @csrf
                     <div class="form-row">
                         <section class="container">
                         <div class="col-md-5 mb-3">
                             <label for="validationServer01">Nombre</label>
-                            <input type="text" class="form-control" id="validationServer01" placeholder="Nombre de usuario" required>
+                            <input type="text" class="form-control" name="name" id="validationServer01" placeholder="Nombre de usuario" required>
                             <!--<div class="valid-feedback">
                               Looks good!
                             </div>-->
@@ -21,7 +22,12 @@
                         <div class="col-md-5 mb-3">
                             <label for="validationServerUsername">Correo electrónico</label>
                             <div class="input-group">
-                              <input type="text" class="form-control is-invalid" id="validationServerUsername" placeholder="Correo electrónico" aria-describedby="inputGroupPrepend3" required>
+                              <input type="text" class="form-control is-invalid" id="validationServerUsername" name="email" placeholder="Correo electrónico" aria-describedby="inputGroupPrepend3" required>
+                              @if ($errors->has('email'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
                               <div class="invalid-feedback">
                                 Introduzca su correo electrónico.
                               </div>
@@ -36,14 +42,14 @@
                         <div class="col-md-8 mb-3">
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Contraseña</label>
-                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña">
+                                <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Contraseña">
                             </div>
                         </div>
 
                         <div class="col-md-8 mb-3">
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Confirmar contraseña</label>
-                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña">
+                                    <input type="password" class="form-control" id="exampleInputPassword1" name="password_confirmation" placeholder="Contraseña">
                                     <br>
                                     <button type="submit" class="btn btn-primary" onclick="window.location.href='/perfil'">Crear cuenta</button>
                                 </div>

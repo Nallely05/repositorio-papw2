@@ -9,18 +9,19 @@
                 <br>
                 <table><th>
                         <td>
-                    <form action="/perfil" method="get">
+                    <form method="POST" action="{{ route('login') }}">
+                    @csrf
                         <div class="form-group">
                         <label for="exampleInputEmail1">Correo electrónico</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Correo">
+                        <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" placeholder="Correo">
                         <small id="emailHelp" class="form-text text-muted">Su correo nunca será compartido con nadie más.</small>
                         </div>
                         <div class="form-group">
                         <label for="exampleInputPassword1">Contraseña</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña">
+                        <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Contraseña">
                         </div>
                         <div class="form-group form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1" name="remember">
                         <label class="form-check-label" for="exampleCheck1">Recordarme</label>
                         </div>
                         <button type="submit" class="btn btn-primary">Iniciar Sesión</button> 
