@@ -13,6 +13,9 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
+        if (!Schema::hasTable('users')) {
+            // create the tblCategory table
+       
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
@@ -26,6 +29,7 @@ class CreateUsersTable extends Migration
             $table->date('fechaCumple')->nullable();
             $table->timestamps();
         });
+        }    
     }
 
     /**
