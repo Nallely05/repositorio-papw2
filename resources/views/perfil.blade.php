@@ -9,7 +9,7 @@
                 <img src="../Images/Ejemplo4.jpg"  class="img-fluid" alt="Responsive image" style="max-height: 400px; object-fit: cover;">
             </div>
             <div class="card-body">
-                    <h3>Nombre de autor/a <i class="far fa-check-circle"></i></h3>
+                    <h3>{{ Auth::user()->name }} <i class="far fa-check-circle"></i></h3>
                     <!-- Button trigger modal -->
                     <button id="btnCrearHistoria" type="button" data-toggle="modal" data-target="#exampleModalCenter">Crear historia <i class="fas fa-plus" id="IconoMas"></i></button>
                 </div>
