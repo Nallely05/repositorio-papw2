@@ -19,7 +19,11 @@
 
     </head>
 <body>
-@include('navbarNormal')
+@guest
+    @include('navbarNormal')
+@else
+    @include('navbarLog')
+@endguest
 
 <!--CONTENIDO-->
     <br>

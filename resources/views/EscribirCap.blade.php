@@ -5,13 +5,8 @@
 <div class="container-fluid">
              <!--Opciones CAPÍTULO-->
                <br> 
-                            
-            <!--Progress Bar-->
-            <div class="headerProgressBar">
-                <div class="progress-container">
-                    <div class="progress-bar" id="myBar"></div>
-                </div>   
-            </div>
+
+               
                 <!--CAPÍTULO-->
             <div class="card-body">
                     <span class="ir-arriba"></span>
