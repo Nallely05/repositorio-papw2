@@ -8,62 +8,31 @@
         <div class="card-body"><!--Cosa de filtros-->
             <h2>Actualizaciones:</h2>
             <div class="mx-auto container" style="width:100%; ">
+            @foreach($Actualizaciones as $actu)
             <div class="card-body">
                     <div class="card mb-3" style="max-width: 540px; margin:auto;">
                             <div class="row no-gutters">
                               <div class="col-md-4">
-                                <img src="../Images/Ejemplo4.jpg" class="card-img" alt="..." style="object-fit: center; height: 300px; width: 520px; padding-left: 10%;">
+                                <img src="{{url('img/obra?id='.$actu->getIdObra())}}" class="card-img" alt="..." style="object-fit: center; height: 300px; width: 520px; padding-left: 10%;">
                               </div>
                               <div class="col-md-10">
                                 <div class="card-body">
-                                    <a href="/lectura"><h5 class="card-title">Título de Ejemplo 6</h5></a>
-                                  <p class="card-text">Esto es un ejemplo del texto que iría en este espacio. Al crear una historia se le pedirá al usuario agregar un texto corto pero que atrape al lector.</p>
-                                  <p class="card-text"><small class="text-muted">Última actualización hace 5 días</small></p>
+                                    <a href="/lectura"><h5 class="card-title">
+                                    {{$actu->getTituloObra()}}</h5></a> <!--Título de Ejemplo 6-->
+                                    <br>
+                                    <a href="{{url('perfil/'.$actu->getIdUsuario())}}"><h6 class="card-title">
+                                    {{$actu->getNombrePublicando()}}</h6></a>
+                                    <br>
+                                  <p class="card-text">{{$actu->getDescripcionObra()}}</p>
+                                  <p class="card-text"><small class="text-muted">Última actualización {{$actu->getAntiguedad()}}</small></p>
                                 </div>
                               </div>
                             </div>
                     </div>
             </div>
+            @endforeach
             </div>
             <br>
-            <!--Otrooos-->
-            <div class="mx-auto container" style="width:100%; ">
-                    <div class="card-body">
-                            <div class="card mb-3" style="max-width: 540px; margin:auto;">
-                                    <div class="row no-gutters">
-                                      <div class="col-md-4">
-                                        <img src="../Images/Ejemplo7.jpg" class="card-img" alt="..." style="object-fit: center; height: 300px; width: 520px; padding-left: 10%;">
-                                      </div>
-                                      <div class="col-md-10">
-                                        <div class="card-body">
-                                            <a href="/lectura"><h5 class="card-title">Título de Ejemplo 6</h5></a>
-                                          <p class="card-text">Esto es un ejemplo del texto que iría en este espacio. Al crear una historia se le pedirá al usuario agregar un texto corto pero que atrape al lector.</p>
-                                          <p class="card-text"><small class="text-muted">Última actualización hace 5 días</small></p>
-                                        </div>
-                                      </div>
-                                    </div>
-                            </div>
-                    </div>
-                    </div>
-                     <!--Otrooos-->
-            <div class="mx-auto container" style="width:100%; ">
-                    <div class="card-body">
-                            <div class="card mb-3" style="max-width: 540px; margin:auto;">
-                                    <div class="row no-gutters">
-                                      <div class="col-md-4">
-                                        <img src="../Images/Ellos.jpg" class="card-img" alt="..." style="object-fit: center; height: 300px; width: 520px; padding-left: 10%;">
-                                      </div>
-                                      <div class="col-md-10">
-                                        <div class="card-body">
-                                            <a href="/lectura"><h5 class="card-title">Título de Ejemplo 6</h5></a>
-                                          <p class="card-text">Esto es un ejemplo del texto que iría en este espacio. Al crear una historia se le pedirá al usuario agregar un texto corto pero que atrape al lector.</p>
-                                          <p class="card-text"><small class="text-muted">Última actualización hace 5 días</small></p>
-                                        </div>
-                                      </div>
-                                    </div>
-                            </div>
-                    </div>
-                    </div>
         </div>
     </div>
     
@@ -74,22 +43,24 @@
             <div class="card-body">
                     <h2>De los mismos géneros:</h2>
                     <div class="mx-auto container" style="width:100%; ">
+                        @foreach($MismoGenero as $mismoG)
                             <div class="card-body">
                                     <div class="card mb-3" style="max-width: 540px; margin:auto;">
                                             <div class="row no-gutters">
                                               <div class="col-md-4">
-                                                <img src="../Images/Ejemplo4.jpg" class="card-img" alt="..." style="object-fit: center; height: 300px; width: 520px; padding-left: 10%;">
+                                                <img src="{{url('img/obra?id='.$mismoG->getIdObra())}}" class="card-img" alt="..." style="object-fit: center; height: 300px; width: 520px; padding-left: 10%;">
                                               </div>
                                               <div class="col-md-10">
                                                 <div class="card-body">
-                                                    <a href="/lectura"><h5 class="card-title">Título de Ejemplo 6</h5></a>
-                                                  <p class="card-text">Esto es un ejemplo del texto que iría en este espacio. Al crear una historia se le pedirá al usuario agregar un texto corto pero que atrape al lector.</p>
-                                                  <p class="card-text"><small class="text-muted">Última actualización hace 5 días</small></p>
+                                                    <a href="/lectura"><h5 class="card-title">{{$mismoG->getTituloObra()}}</h5></a>
+                                                  <p class="card-text">{{$mismoG->getDescripcionObra()}}</p>
+                                                  <p class="card-text"><small class="text-muted">Última actualización {{$mismoG->getAntiguedad()}}</small></p>
                                                 </div>
                                               </div>
                                             </div>
                                     </div>
                             </div>
+                        @endforeach
                             </div>
             </div>
         </div>

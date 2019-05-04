@@ -21,7 +21,8 @@ class CreateModelComentariosTable extends Migration
             $table->foreign('idUsuario','fk_usuarioC')->references('id')->on('users');
             $table->string('comentario',255);
             $table->boolean('estado');
-            $table->timestamps();
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP'));
         });
     }
 

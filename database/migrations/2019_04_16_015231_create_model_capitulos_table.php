@@ -20,7 +20,8 @@ class CreateModelCapitulosTable extends Migration
             $table->string('tituloCapitulo',50);
             $table->string('imagenCapitulo',1000);
             $table->text('contenidoCapitulo');
-            $table->timestamps();
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP'));
         });
     }
 

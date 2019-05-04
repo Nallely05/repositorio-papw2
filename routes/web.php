@@ -11,63 +11,41 @@
 |
 */
 
-Route::get('/', function () {
-    return view('landingpage');
-});
+Route::get('/', 'VistasController@landingpage');
 
-Route::get('/perfil', function () {
-    return view('perfil');
-});
+Route::resource('/perfil','controllerPerfil');
 
-Route::post('/perfil', function () {
-    return view('perfil');
-});
+Route::get('/CrearCuenta', 'VistasController@crearCuentaView');
+Route::post('/CrearCuenta', 'VistasController@crearCuentaView');
 
-Route::get('/CrearCuenta', function () {
-    return view('CrearCuenta');
-});
+Route::get('/dashboard', 'VistasController@dashboardView');
 
-Route::post('/CrearCuenta', function () {
-    return view('CrearCuenta');
-});
+Route::get('/Escribir', 'VistasController@escribirCapView');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-});
+Route::get('/lectura', 'VistasController@lecturaView');
 
-Route::get('/Escribir', function () {
-    return view('EscribirCap');
-});
+Route::get('/politica', 'VistasController@politicaView');
 
-Route::get('/lectura', function () {
-    return view('lectura');
-});
+Route::get('/Buscar', 'VistasController@buscarView');
 
-Route::get('/politica', function () {
-    return view('politica');
-});
+Route::get('/sesion', 'VistasController@sesionView');
 
-Route::get('/Buscar', function () {
-    return view('Buscar');/*Resultados*/
-});
+Route::get('/SobreNosotros', 'VistasController@sobreNosotrosView');
 
-Route::get('/sesion', function () {
-    return view('sesion');
-});
+Route::get('/admin', 'VistasController@adminView');
 
-Route::post('/sesion', function () {
-    return view('sesion');
-});
+Route::get('img/obra','controllerImagenes@getImgObra');
+Route::get('img/cap','controllerImagenes@getImgPortadaCap');
 
-Route::get('/SobreNosotros', function () {
-    return view('SobreNosotros');
-});
+Route::post('/seguir', 'VistasController@seguir');
 
-Route::get('/admin', function () {
-    return view('admin');
-});
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('/Obra','controllerObra');
+Route::resource('/Capitulo','controllerCapitulo');
+
+Route::get('/test',function(){
+    return view('test');
+});

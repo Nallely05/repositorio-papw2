@@ -19,7 +19,8 @@ class CreateModelSeguirsTable extends Migration
             $table->foreign('idUsuarioSeguidor','fk_seguidor')->references('id')->on('users');
             $table->integer('idUsuarioSeguido')->unsigned();
             $table->foreign('idUsuarioSeguido','fk_seguido')->references('id')->on('users');
-            $table->timestamps();
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP'));
         });
     }
 

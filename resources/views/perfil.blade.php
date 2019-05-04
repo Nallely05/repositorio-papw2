@@ -12,9 +12,27 @@
                 <img src="../Images/Ejemplo4.jpg"  class="img-fluid" alt="Responsive image" style="max-height: 400px; object-fit: cover;">
             </div>
             <div class="card-body">
-                    <h3>{{ Auth::user()->name }} <i class="far fa-check-circle"></i></h3>
+                <span>
+                    <h3>{{$nombreUsuario}}
+                      @if(isset($seguir))
+                      <form method="post" action="{{url('/seguir')}}">
+                        <input type="hidden" name="idUsuarioSiguiendo" value="{{$id}}">
+                        @csrf
+                      <button type="submit" class="seguir">
+                          @if($seguir)
+                          <i class="fas fa-check-circle"></i>
+                          @else
+                          <i class="far fa-check-circle"></i>
+                      @endif
+                        </button> 
+                      </form> 
+                      @endif
+                    </h3>
+                </span>
                     <!-- Button crear historia -->
+                    @if(isset($Yo))
                     <button id="btnCrearHistoria" type="button" data-toggle="modal" data-target="#exampleModalCenter">Crear historia <i class="fas fa-plus" id="IconoMas"></i></button>
+                    @endif
                 </div>
         </div>
 
@@ -34,13 +52,12 @@
         <form id="formCrearHistoria" method="post" enctype= "multipart/form-data" action="/Obra"> <!-- FORM -->
         @csrf
         <input type="hidden" name="idUsuarioPerfil" value="{{ Auth::user()->id }}">
-            <input type="text" value="Título de Historia" class="card-title form-control col-md-8" style="margin:auto;" name="tituloObra">
+            <input type="text" placeholder="Título de Historia" class="card-title form-control col-md-8" style="margin:auto;" name="tituloObra">
             <br>
-              <div class="custom-file">
-              <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" name="portadaObra">
-              <label class="custom-file-label" for="inputGroupFile01">Elegir archivo</label>
-            </div>
-            <br>
+            <div class="box">
+					<input type="file" name="portadaObra" id="file-2" class="inputfile1 inputfile-2"/>
+					<label for="file-2"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg> <span>Choose a file&hellip;</span></label>
+				</div>
             <br>
             <textarea class="form-control" aria-label="With textarea" placeholder="Descripción general corta" name="descripcionObra"></textarea>
             <br>
@@ -125,7 +142,9 @@
   <pre>
   <iframe width="319" height="180" src="https://www.youtube.com/embed/nt9c0UeYhFc?list=LLfc3W4Rn1jpBLR4U7qns2Bw" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </pre>
+@if(isset($Yo))
 <a href="/politica">&nbsp;Editar información</a>
+@endif
 </div>
 
     <!--Siguiendo-->
@@ -135,28 +154,33 @@
             <a href="/perfil"><img src="../Images/Ejemplo2.jpg" alt="..." class="FotoDePerfil2 shadow p-3"></a>
             </div>
   <!--Mi biblioteca-->
-            <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-                    <div class="card-body">
-                    <div class="card mb-3" style="max-width: 540px;">
-                            <div class="row no-gutters">
-                              <div class="col-md-4">
-                                <img src="../Images/Ejemplo4.jpg" class="card-img" alt="...">
-                              </div>
-                              <div class="col-md-8">
-                                <div class="card-body">
-                                    <a href="/lectura"><h5 class="card-title">Título de Ejemplo 6</h5></a>
-                                    
-                                  <p class="card-text">Esto es un ejemplo del texto que iría en este espacio. Al crear una historia se le pedirá al usuario agregar un texto corto pero que atrape al lector.</p>
-                                  <button id="btnAgregarCapítulo" type="button" onclick="window.location.href='/Escribir'">Agregar capítulo <i class="fas fa-plus" id="IconoMas"></i></button>
-                                  <p class="card-text"><small class="text-muted">Última actualización hace 5 días</small></p>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                <!--ADMIN-->
-                            </div>
-                            <div class="tab-pane fade" id="admin" role="tabpanel" aria-labelledby="admin-tab">
+<div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+        @foreach($ObrasPublicadas as $Obrasp)
+        <div class="card-body">
+          <div class="card mb-3" style="max-width: 540px;">
+                  <div class="row no-gutters">
+                    <div class="col-md-4">
+                      <img src="{{url('img/obra?id='.$Obrasp->getIdObra())}}" class="card-img" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                      <div class="card-body">
+                          <a href="/lectura"><h5 class="card-title">{{$Obrasp->getTituloObra()}}</h5></a>
+                          
+                        <p class="card-text">{{$Obrasp->getDescripcionObra()}}</p>
+                        @if(isset($Yo))
+                        <button id="btnAgregarCapítulo" type="button" onclick="window.location.href='{{url('/Escribir?id='.$Obrasp->getIdObra())}}'">Agregar capítulo <i class="fas fa-plus" id="IconoMas"></i></button>
+                        @endif
+                        <button id="btnAgregarCapítulo" type="button" onclick="window.location.href='{{url('/lectura?idObra='.$Obrasp->getIdObra().'&idCap=1')}}'">Leer</i></button>
+                        <p class="card-text"><small class="text-muted">Última actualización {{$Obrasp->getAntiguedad()}}</small></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>@endforeach
+        </div>
+        
+          <!--ADMIN-->
+          <div class="tab-pane fade" id="admin" role="tabpanel" aria-labelledby="admin-tab">
               <br>
               <h5 style="color:black;">(Esta pestaña solo se mostrará si el usuario es administrador)</h5><br>
               <!--Reportes-->
@@ -171,6 +195,7 @@
                     </div>
             </div>
         </div>
+        
     </div>
 
 @stop

@@ -4,9 +4,9 @@
         <title>  @yield('title') </title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-        <script type="text/javascript" src="js/bootstrap.js"></script>
-        <link rel="shortcut icon" href="../Images/favicon.ico"/>
+        <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.css')}}">
+        <script type="text/javascript" src="{{asset('js/bootstrap.js')}}"></script>
+        <link rel="shortcut icon" href="{{asset('../Images/favicon.ico')}}"/>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Roboto:100,600" rel="stylesheet" type="text/css">

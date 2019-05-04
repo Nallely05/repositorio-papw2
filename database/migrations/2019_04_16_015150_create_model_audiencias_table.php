@@ -16,7 +16,8 @@ class CreateModelAudienciasTable extends Migration
         Schema::create('tbl_audiencia', function (Blueprint $table) {
             $table->increments('idAudiencia');
             $table->string('nombreAudiencia',25);
-            $table->timestamps();
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP'));
         });
     }
 

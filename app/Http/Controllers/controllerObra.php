@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use App\modelObra;
 
 class controllerObra extends Controller
@@ -36,6 +37,7 @@ class controllerObra extends Controller
      */
     public function store(Request $request)
     {
+        $idUsuarioPublicando=\Auth::user();
         $var= new modelObra();
         $var->setTituloObra($request->input('tituloObra'));
         //$var->setImgPortadaObra($request->photo->store('portadaObra'));
@@ -46,10 +48,20 @@ class controllerObra extends Controller
         $var->setIdAdvertencia($request->input('Advertencia'));
         $var->setIdUsuario($request->input('idUsuarioPerfil'));
 
+        $pathObra="public/usuarios/".$idUsuarioPublicando->id."/Obras"."/".time();
+        Storage::makeDirectory($pathObra);
+
+        $LecturaImg=$request->file("portadaObra");
+        if($LecturaImg)
+        {
+            $nombrePortada=time()."-".substr($LecturaImg->getClientOriginalName(),-5);
+            $var->setImgPortadaObra($pathObra."/".$nombrePortada);
+            Storage::putFileAs($pathObra,$LecturaImg,$nombrePortada);
+        }
 
         DB::table('tbl_obra')->insert(array(
             'tituloObra'=> $var->getTituloObra(),
-            'imgPortadaObra'=>'zxx',
+            'imgPortadaObra'=>$var->getImgPortadaObra(),
             'descripcionObra'=>$var->getDescripcionObra(),
             'idCategoria'=>$var->getIdCategoria(),
             'idAudiencia'=>$var->getIdAudiencia(),
@@ -57,7 +69,7 @@ class controllerObra extends Controller
             'idAdvertencia'=>$var->getIdAdvertencia(),
             'idUsuario'=>$var->getIdUsuario()
         ));
-        return view('perfil');
+        return redirect('perfil');
     }
 
     /**

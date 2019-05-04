@@ -50,6 +50,43 @@
   background-color: #f1f1f1;
 }
 
+.inputfile1 {
+	width: 0.1px;
+	height: 0.1px;
+  opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+.inputfile1 + label {
+  background-color: white;
+  color: rgb(70, 69, 71);
+  padding: 10px;
+  border-radius: 7px;
+  display: inline-block;
+  cursor: pointer; /* "hand" cursor */
+  outline: 1px dotted #000;
+	outline: -webkit-focus-ring-color auto 5px;
+}
+
+.seguir
+{
+  background-color: transparent;
+  border-radius: 50%;
+  width: 40px;
+  height:40px;
+  color: rgb(102, 59, 201);
+  border-style: none;
+
+}
+
+.inputfile1 + label:hover {
+  background-color: rgb(102, 59, 201);
+  color: white; /* Text color */
+  padding: 10px; /* Some padding */
+  border-radius: 7px; 
+}
+
 .card-img1{
   position: absolute;
   top: 0;
@@ -2111,6 +2148,11 @@ pre code {
   border: 0;
 }
 
+h3>.form-control{
+  display: inline;
+}
+
+
 .form-control {
   display: block;
   width: 100%;
@@ -2132,6 +2174,7 @@ pre code {
     transition: none;
   }
 }
+
 
 .form-control::-ms-expand {
   background-color: transparent;

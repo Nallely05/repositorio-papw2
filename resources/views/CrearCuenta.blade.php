@@ -22,23 +22,27 @@
                         <div class="col-md-5 mb-3">
                             <label for="validationServerUsername">Correo electrónico</label>
                             <div class="input-group">
-                              <input type="text" class="form-control is-invalid" id="validationServerUsername" name="email" placeholder="Correo electrónico" aria-describedby="inputGroupPrepend3" required>
-                              @if ($errors->has('email'))
+                              <input type="text" class="form-control" id="validationServerUsername" name="email" placeholder="Correo electrónico" aria-describedby="inputGroupPrepend3" required>
+                             <!-- @if ($errors->has('email'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('email') }}</strong>
                                     </span>
-                                @endif
-                              <div class="invalid-feedback">
-                                Introduzca su correo electrónico.
-                              </div>
+                                @endif-->
+                             
                             </div>
                         </div>
-
+                         <!--Intento de edad -->
+                         <div class="col-md-3 mb-2">
+                         <label for="validationServer01">Fecha de cumpleaños:</label><br>
+                         <input type="date">
+                        </div>
+                        <!-- Original-->
+                         <!-- 
                         <div class="col-md-3 mb-2">
                                 <label for="validationServer01">Edad</label>
                                 <input type="number" class="form-control" id="validationServer01" placeholder="Edad">
-                            </div>
-                        
+                            </div>-->
+                         <!--Termina original -->
                         <div class="col-md-8 mb-3">
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Contraseña</label>

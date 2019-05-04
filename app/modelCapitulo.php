@@ -6,5 +6,55 @@ use Illuminate\Database\Eloquent\Model;
 
 class modelCapitulo extends Model
 {
-    //
+    protected $table= "tbl_capitulo";
+    protected $idCapitulo;
+    protected $idObra;
+    protected $tituloCapitulo;
+    protected $imagenCapitulo;
+    protected $contenidoCapitulo;
+    protected $created_at;
+    protected $updated_at;
+
+    public function __constructor(){}
+        public function getIdCapitulo()
+        {return $this->idCapitulo;}
+     
+        public function setIdCapitulo($idCapitulo)
+        { $this->idCapitulo=$idCapitulo;}
+
+        public function getIdObra()
+        {return $this->idObra;}
+     
+        public function setIdObra($idObra)
+        { $this->idObra=$idObra;}
+
+        public function getTituloCapitulo()
+        {return $this->tituloCapitulo;}
+     
+        public function setTituloCapitulo($tituloCapitulo)
+        { $this->tituloCapitulo=$tituloCapitulo;}
+
+        public function getImagenCapitulo()
+        {return $this->imagenCapitulo;}
+     
+        public function setImagenCapitulo($imagenCapitulo)
+        { $this->imagenCapitulo=$imagenCapitulo;}
+
+        public function getContenidoCapitulo()
+        {return $this->contenidoCapitulo;}
+     
+        public function setContenidoCapitulo($contenidoCapitulo)
+        { $this->contenidoCapitulo=$contenidoCapitulo;}
+
+        public function getCreated_at()
+        {return $this->created_at;}
+
+        public function setCreated_at($created_at)
+        { $this->created_at=$created_at;}
+
+        public function getUpdated_at()
+        {return $this->updated_at;}
+
+        public function setUpdateded_at($updated_at)
+        { $this->updated_at=$updated_at;}
 }

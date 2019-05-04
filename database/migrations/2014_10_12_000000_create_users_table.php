@@ -27,7 +27,8 @@ class CreateUsersTable extends Migration
             $table->string('imagenPerfil', 1000)->nullable();
             $table->string('videoPerfil', 1000)->nullable();
             $table->date('fechaCumple')->nullable();
-            $table->timestamps();
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP'));
         });
         }    
     }
