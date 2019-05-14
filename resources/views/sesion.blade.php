@@ -24,7 +24,7 @@
                         <input type="checkbox" class="form-check-input" id="exampleCheck1" name="remember">
                         <label class="form-check-label" for="exampleCheck1">Recordarme</label>
                         </div>
-                        <button type="submit" class="btn btn-primary">Iniciar Sesión</button> 
+                        <button type="submit" class="btn btn-primary" onclick="window.location.href='/perfil'">Iniciar Sesión</button> 
                         <br>
                     </form>
                 </td>

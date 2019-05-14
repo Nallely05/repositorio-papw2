@@ -45,12 +45,28 @@ class controllerPerfil extends Controller
         }
         //echo var_dump(count($ObrasPublicadas));
        
+        $DatosUsuario=DB::table('users')->select()->where('id',$Us->id)->first();
 
-       return view('perfil')->with('ObrasPublicadas',$ObrasPublicadas)
-       ->with('id',$Us->id)
-       ->with('nombreUsuario',$ObrasPublicadas[0]->getNombrePublicando())
-       ->with('Yo',true);
-       
+        if($DatosUsuario)
+        {
+            if($ObrasPublicadas)
+            {
+            return view('perfil')->with('ObrasPublicadas',$ObrasPublicadas)
+            ->with('id',$Us->id)
+            ->with('nombreUsuario',$ObrasPublicadas[0]->getNombrePublicando())
+            ->with('Yo',true);
+            }
+            else {
+                return view('perfil')
+                ->with('id',$Us->id)
+                ->with('nombreUsuario',$DatosUsuario->name)
+                ->with('Yo',true);
+            }   
+        }
+        else
+        {
+            return redirect("/");
+        }    
     }
 
     /**

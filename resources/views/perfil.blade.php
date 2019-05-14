@@ -155,6 +155,7 @@
             </div>
   <!--Mi biblioteca-->
 <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+        @if(isset($ObrasPublicadas))
         @foreach($ObrasPublicadas as $Obrasp)
         <div class="card-body">
           <div class="card mb-3" style="max-width: 540px;">
@@ -177,6 +178,7 @@
                   </div>
                 </div>
               </div>@endforeach
+              @endif
         </div>
         
           <!--ADMIN-->
