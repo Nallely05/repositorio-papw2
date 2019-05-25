@@ -5,11 +5,11 @@
     <div class="container-fluid">
         <div class="card">
             <div class="card-body"><!--Imágenes de perfil-->
-                <img src="../Images/Perfil2.jpg" alt="..." class="FotoDePerfil shadow p-3">
+                <img src="../Images/Perfil2.jpg" alt="..." class="FotoDePerfil shadow p-3" title="Foto de perfil">
                 <!--
                   <button type="button" class="btn btn-dark">Cambiar foto de portada</button>
                 -->
-                <img src="../Images/Ejemplo4.jpg"  class="img-fluid" alt="Responsive image" style="max-height: 400px; object-fit: cover;">
+                <img src="../Images/Ejemplo4.jpg"  class="img-fluid" alt="Responsive image" style="max-height: 400px; object-fit: cover;" title="Foto de portada">
             </div>
             <div class="card-body">
                 <span>
@@ -20,9 +20,9 @@
                         @csrf
                       <button type="submit" class="seguir">
                           @if($seguir)
-                          <i class="fas fa-check-circle"></i>
+                          <i class="fas fa-check-circle" title="Dejar de seguir usuario"></i>
                           @else
-                          <i class="far fa-check-circle"></i>
+                          <i class="far fa-check-circle" title="Seguir usuario"></i>
                       @endif
                         </button> 
                       </form> 
@@ -31,7 +31,7 @@
                 </span>
                     <!-- Button crear historia -->
                     @if(isset($Yo))
-                    <button id="btnCrearHistoria" type="button" data-toggle="modal" data-target="#exampleModalCenter">Crear historia <i class="fas fa-plus" id="IconoMas"></i></button>
+                    <button id="btnCrearHistoria" type="button" data-toggle="modal" data-target="#exampleModalCenter" title="Has click aquí para crear una historia">Crear historia <i class="fas fa-plus" id="IconoMas"></i></button>
                     @endif
                 </div>
         </div>
@@ -121,10 +121,10 @@
                               <a class="nav-link active text-primary" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true" style="color:rgb(102, 59, 201) !important;">Mi información</a>
                             </li>
                             <li class="nav-item">
-                              <a class="nav-link text-primary" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false" style="color:rgb(102, 59, 201) !important;">Siguiendo</a>
+                              <a class="nav-link text-primary" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false" style="color:rgb(102, 59, 201) !important;" title="Personas que sigues">Siguiendo</a>
                             </li>
                             <li class="nav-item">
-                              <a class="nav-link text-primary" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false" style="color:rgb(102, 59, 201) !important;">Mi biblioteca</a>
+                              <a class="nav-link text-primary" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false" style="color:rgb(102, 59, 201) !important;" title="Historias creadas">Mi biblioteca</a>
                             </li>
                            <!-- <li class="nav-item">
                               <a class="nav-link text-primary" id="admin-tab" data-toggle="tab" href="#admin" role="tab" aria-controls="admin" aria-selected="false" style="color:rgb(102, 59, 201) !important;">Reportes</a>

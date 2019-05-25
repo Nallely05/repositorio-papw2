@@ -17,16 +17,17 @@
                               </div>
                               <div class="col-md-10">
                                 <div class="card-body">
-                                    <a href="/lectura"><h5 class="card-title">
-                                    {{$actu->getTituloObra()}}</h5></a> <!--Título de Ejemplo 6-->
+                               <a href="/lectura"><h3 class="card-title">
+                                    {{$actu->getTituloObra()}}</h3></a> <!--Título de Ejemplo 6-->
                                     <br>
-                                    <a href="{{url('perfil/'.$actu->getIdUsuario())}}"><h6 class="card-title">
-                                    Autor/a: {{$actu->getNombrePublicando()}}</h6></a>
+                                    <h4 style="color:black;" class="card-title">Escrito por: <a  style="color:rgb(102, 59, 201);" href="{{url('perfil/'.$actu->getIdUsuario())}}">
+                                    {{$actu->getNombrePublicando()}}</a></h4>
                                     <br>
-                                  <p class="card-text">{{$actu->getDescripcionObra()}}</p> <br>
-                                  <p class="card-text">{{$actu->getIdGenero()}}</p> <br>
-                                  <p class="card-text">{{$actu->getIdCategoria()}}</p><br>
-                                  <p class="card-text">{{$actu->getIdAudiencia()}}</p><br>
+                                    <h5>Descripción:</h5><p class="card-text">{{$actu->getDescripcionObra()}}</p> <br>
+                                    <h5>Categoría:</h5> <p class="card-text">{{$actu->getNombreCategoria()}}</p> <br>
+                                    <h5>Audiencia:</h5><p class="card-text">{{$actu->getNombreAudiencia()}}</p> <br>
+                                    <h5>Genero:</h5><p class="card-text">{{$actu->getNombreGenero()}}</p><br>
+                                    <h5>Advertencia:</h5><p class="card-text">{{$actu->getNombreAdvertencia()}}</p><br>
                                   <p class="card-text"><small class="text-muted">Última actualización {{$actu->getAntiguedad()}}</small></p>
                                 </div>
                               </div>
@@ -55,13 +56,14 @@
                                               </div>
                                               <div class="col-md-10">
                                                 <div class="card-body">
-                                                    <a href="/lectura"><h5 class="card-title">{{$mismoG->getTituloObra()}}</h5></a>
-                                                  <p class="card-text">{{$mismoG->getDescripcionObra()}}</p>
-                                                  <p class="card-text">{{$mismoG->getDescripcionObra()}}</p> <br>
-                                                  <p class="card-text">{{$mismoG->getIdGenero()}}</p> <br>
-                                                  <p class="card-text">{{$mismoG->getIdCategoria()}}</p><br>
-                                                  <p class="card-text">{{$mismoG->getIdAudiencia()}}</p><br>
-                                                  <p class="card-text"><small class="text-muted">Última actualización {{$mismoG->getAntiguedad()}}</small></p>
+                                                  <a href="/lectura"><h3 class="card-title">{{$mismoG->getTituloObra()}}</h3></a>
+                                                  <h4 style="color:black;" class="card-title">Escrito por: <a style="color:rgb(102, 59, 201);" href="{{url('perfil/'.$mismoG->getIdUsuario())}}">{{$mismoG->getNombrePublicando()}}</a></h4><br>
+                                                  <h5>Descripción:</h5><p class="card-text">{{$mismoG->getDescripcionObra()}}</p>
+                                                  <h5>Categoría:</h5><p class="card-text">{{$mismoG->getNombreCategoria()}}</p> <br>
+                                                  <h5>Audiencia:</h5><p class="card-text">{{$mismoG->getNombreAudiencia()}}</p> <br>
+                                                  <h5>Genero:</h5><p class="card-text">{{$mismoG->getNombreGenero()}}</p><br>
+                                                  <h5>Advertencia:</h5><p class="card-text">{{$mismoG->getNombreAdvertencia()}}</p><br>
+                                                  <h5></h5><p class="card-text"><small class="text-muted">Última actualización {{$mismoG->getAntiguedad()}}</small></p>
                                                 </div>
                                               </div>
                                             </div>

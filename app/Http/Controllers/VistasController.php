@@ -76,12 +76,12 @@ class VistasController extends Controller
             $mAct->setUpdateded_at($mismoG->updated_at);
 
              //vDashboard
-             $mAct->setNombreGenero($actu->nombreGenero);
-             $mAct->setNombreCategoria($actu->nombreCategoria);
-             $mAct->setNombreAudiencia($actu->nombreAudiencia);
-             $mAct->setNombreAdvertencia($actu->nombreAdvertencia);
-             $mAct->setAntiguedad($actu->antiguedad);
-             $mAct->setNombrePublicando($actu->name);
+             $mAct->setNombreGenero($mismoG->nombreGenero);
+             $mAct->setNombreCategoria($mismoG->nombreCategoria);
+             $mAct->setNombreAudiencia($mismoG->nombreAudiencia);
+             $mAct->setNombreAdvertencia($mismoG->nombreAdvertencia);
+             $mAct->setAntiguedad($mismoG->antiguedad);
+             $mAct->setNombrePublicando($mismoG->name);
 
             array_push($mismoGenero,$mAct);
         }
