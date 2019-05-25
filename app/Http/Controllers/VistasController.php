@@ -205,12 +205,16 @@ class VistasController extends Controller
     {
         return view('SobreNosotros');
     }
-    public function getListSiguiendo()
+    public function getListSiguiendo(Request $request)
     {
-        $user_info = \Auth::user();
-        $dbListaSeguir = DB::table('tbl_seguir')->select()
-        ->where('idUsuarioSeguidor', $user_info->id)
-        ->get();
+        $dbListaSeguir;
+        if($request->id)
+        {
+            $dbListaSeguir = DB::table('tbl_seguir')->select()
+            ->where('idUsuarioSeguidor', $request->id)
+            ->get();
+        }
+        
         return response()->json($dbListaSeguir);
     }
     public function getListCaps(Request $request)
