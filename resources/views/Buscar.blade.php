@@ -7,7 +7,7 @@
         <div class="card-body"><!--Cosa de filtros-->
             <h3>Filtros</h3>
             <div class="Filtros">
-            <form class="Filtros">
+            <form class="Filtros" method="GET" action="{{ route('buscar') }}" > @csrf
                 <select class="textbox" name="catid" id="catid" onchange="browseCategories('catid')">
                     <option value="-1">Categorías</option>
                     <option value="1">Anime/Manga</option>
@@ -52,15 +52,15 @@
                         <option value="-1">Todas las historias</option>
                         <option value="1">Terminadas</option>
                         <option value="2">En proceso</option>
-                </select>-->
+                </select>
 
                 <select class="textbox" name="catid5" id="catid5" onchange="browseCategories('catid5')">
                         <option value="-1">Ordenar</option>
                         <option value="1">Alabéticamente</option>
                         <option value="2">Mas recientes</option>
-                </select>
+                </select>-->
 
-                <button class="Filtros" id="BtnBuscarPorFiltros">Buscar</button>
+                <button type="submit" class="Filtros" id="BtnBuscarPorFiltros">Buscar</button>
         
             </form>
         </div>
@@ -71,24 +71,30 @@
 <br>
         <div class="card"><!--RESULTADOS-->
             <div class="card-body">
+            <!--<div class="card-deck">-->
                 <div class="card-deck">
-
+                @foreach($dbBusqueda as $Bus)
                     <div class="card">
-                        <img src="../Images/Ejemplo5.jpg" class="card-img-top" alt="Responsive image">
-                        <div class="card-body">
-                            <a href="/lectura"><h5 class="card-title">Título de Ejemplo 1</h5></a>
-                            <a href="/perfil" class="card-link">Nombre de Autora</a><br>
-                            <p class="card-text">Esto es un ejemplo del texto que iría en este espacio. Al crear una historia se le pedirá al usuario agregar un texto corto pero que atrape al lector.</p>
-                            <h6 class="card-title">Géneros:</h6> <p>Romance</p><br>
-                            <!--<h6 class="card-title">Estado:</h6> <p>En proceso</p><br>-->
-                            <h6 class="card-title">Advertencias:</h6> <p>Spoilers</p><br>
-                            <h6 class="card-title">Audiencia:</h6> <p>Todo publico</p>
-                        </div>
-                        <div class="card-footer">
-                            <small class="text-muted">Última actualización hace 8 minutos</small>
-                        </div>
+                        <div class="card">
+                        <a href="{{url('/lectura?idObra='.$Bus->getIdObra())}}"><img src="{{url('img/obra?id='.$Bus->getIdObra())}}" class="card-img-top" alt="Responsive image"></a>
+                                <div class="card-body">
+                                    <a href="{{url('/lectura?idObra='.$Bus->getIdObra())}}"><h4 class="card-title"> 
+                                    {{$Bus->getTituloObra()}}</h4></a> 
+                                    <h4 style="color:black;" class="card-link">Escrito por: <a  style="color:rgb(102, 59, 201);" href="{{url('perfil/'.$Bus->getIdUsuario())}}">
+                                    {{$Bus->getNombrePublicando()}}</a></h4><br>
+                                    <h5>Descripción:</h5><p class="card-text">{{$Bus->getDescripcionObra()}}</p> <br>
+                                    <h5 class="card-title">Categoría:</h5> <p class="card-text">{{$Bus->getNombreCategoria()}}</p> <br>
+                                    <h5 class="card-title">Audiencia:</h5><p class="card-text">{{$Bus->getNombreAudiencia()}}</p> <br>
+                                    <h5 class="card-title">Genero:</h5><p class="card-text">{{$Bus->getNombreGenero()}}</p><br>
+                                    <h5 class="card-title">Advertencia:</h5><p class="card-text">{{$Bus->getNombreAdvertencia()}}</p><br>
+                                </div>
+                            <div class="card-footer">
+                                <small class="text-muted">Última actualización {{$Bus->getAntiguedad()}}</small>
+                            </div>
                     </div>
-
+                    @endforeach 
+                </div>
+<!--RESULTADOS
                     <div class="card">
                         <img src="../Images/Ellos2.jpg" class="card-img-top" alt="Responsive image">
                         <div class="card-body">
@@ -96,7 +102,7 @@
                                 <a href="/perfil" class="card-link">Nombre de Autora2</a><br>
                                 <p class="card-text">Esto es un ejemplo del texto que iría en este espacio. Al crear una historia se le pedirá al usuario agregar un texto corto pero que atrape al lector.</p>
                                 <h6 class="card-title">Géneros:</h6> <p>Fantasía</p><br>
-                                <!--<h6 class="card-title">Estado:</h6> <p>Terminado</p><br>-->
+                               
                                 <h6 class="card-title">Advertencias:</h6> <p>Lenguaje inapropiado</p><br>
                                 <h6 class="card-title">Audiencia:</h6> <p>Mayores de 13</p>
                             </div>
@@ -112,7 +118,7 @@
                                 <a href="/perfil" class="card-link">Nombre de Autora3</a><br>
                                 <p class="card-text">Esto es un ejemplo del texto que iría en este espacio. Al crear una historia se le pedirá al usuario agregar un texto corto pero que atrape al lector.</p>
                                 <h6 class="card-title">Géneros:</h6> <p>Aventura, Humor</p><br>
-                                <!--<h6 class="card-title">Estado:</h6> <p>Terminado</p><br>-->
+                               
                                 <h6 class="card-title">Advertencias:</h6> <p>Ninguno</p><br>
                                 <h6 class="card-title">Audiencia:</h6> <p>Todo publico</p>
                             </div>
@@ -122,7 +128,7 @@
                     </div>
                     
                 </div>
-                <!--PRUEBA-->
+            
                 <br>
 
                 <div class="card-deck">
@@ -134,7 +140,7 @@
                                 <a href="/perfil" class="card-link">Nombre de Autora4</a><br>
                                 <p class="card-text">Esto es un ejemplo del texto que iría en este espacio. Al crear una historia se le pedirá al usuario agregar un texto corto pero que atrape al lector.</p>
                                 <h6 class="card-title">Géneros:</h6> <p>Romance, Universo alternativo</p><br>
-                                <!--<h6 class="card-title">Estado:</h6> <p>Terminado</p><br>-->
+                           
                                 <h6 class="card-title">Advertencias:</h6> <p>Lemon</p><br>
                                 <h6 class="card-title">Audiencia:</h6> <p>Mayores de 18</p>
                             </div>
@@ -150,7 +156,7 @@
                                     <a href="/perfil" class="card-link">Nombre de Autora2</a><br>
                                     <p class="card-text">Esto es un ejemplo del texto que iría en este espacio. Al crear una historia se le pedirá al usuario agregar un texto corto pero que atrape al lector.</p>
                                     <h6 class="card-title">Géneros:</h6> <p>Drama</p>
-                                    <!--<h6 class="card-title">Estado:</h6> <p>En proceso</p><br>-->
+                                  
                                     <h6 class="card-title">Advertencias:</h6> <p>Muerte de un personaje</p><br>
                                     <h6 class="card-title">Audiencia:</h6> <p>Mayores de 13</p>
                                 </div>
@@ -166,17 +172,16 @@
                                     <a href="/perfil" class="card-link">Nombre de Autora</a><br>
                                     <p class="card-text">Esto es un ejemplo del texto que iría en este espacio. Al crear una historia se le pedirá al usuario agregar un texto corto pero que atrape al lector.</p>
                                     <h6 class="card-title">Géneros:</h6> <p>Romance</p>
-                                   <!-- <h6 class="card-title">Estado:</h6> <p>En proceso</p><br>-->
+                                 
                                     <h6 class="card-title">Advertencias:</h6> <p>Ninguno</p><br>
                                     <h6 class="card-title">Audiencia:</h6> <p>Todo público</p>
                                 </div>
                             <div class="card-footer">
                                 <small class="text-muted">Última actualización hace 5 días</small>
                             </div>
-                        </div>                       
-                    </div>
-                <!--INTENTO-->
-            </div>
+                        </div>               
+                    </div>  
+            </div> -->  
         </div>
     </div>
 @stop

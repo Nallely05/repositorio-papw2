@@ -51,3 +51,5 @@ Route::get('/test',function(){
 });
 
 Route::get('/ListaSeguir', 'VistasController@getListSiguiendo');
+
+Route::get('/ListaCaps', 'VistasController@getListCaps');

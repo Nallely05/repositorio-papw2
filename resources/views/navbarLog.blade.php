@@ -21,7 +21,7 @@
   </li>
     <li class="nav-item">
         <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: rgb(143, 110, 219);">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: rgb(143, 110, 219);" title="Has click aquí para ir al perfil o cerrar sesión">
         {{ Auth::user()->name }}&nbsp;<i class="fas fa-user" style></i></button>
         </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">

@@ -135,8 +135,66 @@ class VistasController extends Controller
 
     public function buscarView(Request $request)
     {
+        $dbBusqueda = null;
+        $Busqueda=array();
+    
+        if($request->catid!='-1')
+        {
+        $dbBusqueda=DB::table('vDashboard')->select()->where('idCategoria', 'LIKE', '%' .$request->catid. '%')->get();
+        }
+        else{
+            if($request->catid1!='-1')
+            {
+            $dbBusqueda=DB::table('vDashboard')->select()->where('idAudiencia', 'LIKE', '%' .$request->catid1. '%')->get();
+            }
+            else{
+                if($request->catid2!='-1')
+                {
+                $dbBusqueda=DB::table('vDashboard')->select()->where('idGenero', 'LIKE', '%' .$request->catid2. '%')->get();
+                }
+                else{
+                    if($request->catid3!='-1')
+                    {
+                    $dbBusqueda=DB::table('vDashboard')->select()->where('idAdvertencia', 'LIKE', '%' .$request->catid3. '%')->get();
+                    }
+                }
+            } 
+        }
+        if($request->inputBuscarPorTitulo)
+        {
+            $dbBusqueda=DB::table('vDashboard')->select()->where('tituloObra', 'LIKE', '%' .$request->inputBuscarPorTitulo. '%')->orWhere('descripcionObra', 'LIKE', '%' .$request->inputBuscarPorTitulo. '%')->get();
+        }
+        if($dbBusqueda!=null)
+        {
+            foreach($dbBusqueda as $Bus)
+            {
+                $mBus=new modelObra();
+                $mBus->setImgPortadaObra($Bus->imgPortadaObra);
+                $mBus->setIdObra($Bus->idObra);
+                $mBus->setIdUsuario($Bus->idUsuario);
+                $mBus->setIdGenero($Bus->idGenero);
+                $mBus->setIdCategoria($Bus->idCategoria);
+                $mBus->setIdAudiencia($Bus->idAudiencia);
+                $mBus->setIdAdvertencia($Bus->idAdvertencia);
+                $mBus->setTituloObra($Bus->tituloObra);
+                $mBus->setDescripcionObra($Bus->descripcionObra);
+                $mBus->setCreated_at($Bus->created_at);
+                $mBus->setUpdateded_at($Bus->updated_at);
 
-        return view('Buscar');/*Resultados*/
+                //vDashboard
+                $mBus->setNombreGenero($Bus->nombreGenero);
+                $mBus->setNombreCategoria($Bus->nombreCategoria);
+                $mBus->setNombreAudiencia($Bus->nombreAudiencia);
+                $mBus->setNombreAdvertencia($Bus->nombreAdvertencia);
+                $mBus->setAntiguedad($Bus->antiguedad);
+                $mBus->setNombrePublicando($Bus->name);
+
+                array_push($Busqueda,$mBus);
+        }
+
+        }
+        
+        return view('Buscar')->with('dbBusqueda',$Busqueda);/*Resultados*/
     }
 
     public function sesionView()
@@ -154,6 +212,17 @@ class VistasController extends Controller
         ->where('idUsuarioSeguidor', $user_info->id)
         ->get();
         return response()->json($dbListaSeguir);
+    }
+    public function getListCaps(Request $request)
+    {
+        $dbListaCaps=null;
+        if($request->idObra){
+        $dbListaCaps = DB::table('tbl_capitulo')->select()
+        ->where('idObra', $request->idObra)
+        ->get();
+        }
+       
+        return response()->json($dbListaCaps);
     }
     public function seguir(Request $request)
     {

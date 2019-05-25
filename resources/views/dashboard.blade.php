@@ -13,11 +13,11 @@
                     <div class="card mb-3" style="max-width: 540px; margin:auto;">
                             <div class="row no-gutters">
                               <div class="col-md-4">
-                                <img src="{{url('img/obra?id='.$actu->getIdObra())}}" class="card-img" alt="..." style="object-fit: center; height: 300px; width: 520px; padding-left: 10%;">
+                              <a href="{{url('/lectura?idObra='.$actu->getIdObra())}}"><img src="{{url('img/obra?id='.$actu->getIdObra())}}" class="card-img" alt="..." style="object-fit: center; height: 300px; width: 520px; padding-left: 10%;"></a>
                               </div>
                               <div class="col-md-10">
                                 <div class="card-body">
-                               <a href="/lectura"><h3 class="card-title">
+                               <a href="{{url('/lectura?idObra='.$actu->getIdObra())}}"><h3 class="card-title"> 
                                     {{$actu->getTituloObra()}}</h3></a> <!--Título de Ejemplo 6-->
                                     <br>
                                     <h4 style="color:black;" class="card-title">Escrito por: <a  style="color:rgb(102, 59, 201);" href="{{url('perfil/'.$actu->getIdUsuario())}}">
@@ -52,11 +52,11 @@
                                     <div class="card mb-3" style="max-width: 540px; margin:auto;">
                                             <div class="row no-gutters">
                                               <div class="col-md-4">
-                                                <img src="{{url('img/obra?id='.$mismoG->getIdObra())}}" class="card-img" alt="..." style="object-fit: center; height: 300px; width: 520px; padding-left: 10%;">
+                                              <a href="{{url('/lectura?idObra='.$mismoG->getIdObra())}}"><img src="{{url('img/obra?id='.$mismoG->getIdObra())}}" class="card-img" alt="..." style="object-fit: center; height: 300px; width: 520px; padding-left: 10%;"></a>
                                               </div>
                                               <div class="col-md-10">
                                                 <div class="card-body">
-                                                  <a href="/lectura"><h3 class="card-title">{{$mismoG->getTituloObra()}}</h3></a>
+                                                  <a href="{{url('/lectura?idObra='.$mismoG->getIdObra())}}"><h3 class="card-title">{{$mismoG->getTituloObra()}}</h3></a>
                                                   <h4 style="color:black;" class="card-title">Escrito por: <a style="color:rgb(102, 59, 201);" href="{{url('perfil/'.$mismoG->getIdUsuario())}}">{{$mismoG->getNombrePublicando()}}</a></h4><br>
                                                   <h5>Descripción:</h5><p class="card-text">{{$mismoG->getDescripcionObra()}}</p>
                                                   <h5>Categoría:</h5><p class="card-text">{{$mismoG->getNombreCategoria()}}</p> <br>

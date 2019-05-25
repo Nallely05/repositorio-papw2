@@ -8,10 +8,8 @@
                             <button class="btn-LecturaCaps btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Capítulos
                             </button>
-                            <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#">Capítulo 1-Título</a>
-                                    <a class="dropdown-item" href="#">Capítulo 2-Título 2</a>
-                                    <a class="dropdown-item" href="#">Capítulo 3-Título 3</a>
+
+                            <div class="dropdown-menu" id="dropCapitulos">
                             </div> 
             <!--Progress Bar-->
             <div class="headerProgressBar">
@@ -119,4 +117,38 @@
             </div>
         </div>
     </div>
+
+    <script>
+$(document).ready(function(){
+   
+  function getCapitulos()
+    {
+        var dataToSend={
+            idObra:{{$capituloAleer->getIdObra()}}
+        };
+      $.ajax({
+            url: '/ListaCaps',
+            async: 'true',
+            type: 'GET',
+            data: dataToSend,
+            dataType: 'json',
+            success: function (respuesta) {
+               for(var i=0; i < respuesta.length;i++)
+               {
+                var noC="/lectura?idObra="+respuesta[i].idObra;
+              //  var x = "/perfil/" + respuesta[i].idUsuarioSeguido;
+                // $("#profile").append("<a href='"+x+"'><img src='../Images/Nai.jpg' alt='...' class='FotoDePerfil2 shadow p-3'></a>");
+                $("#dropCapitulos").append("<a class='dropdown-item' href='"+noC+"'>Capítulo"+(i+1)+"</a>");
+               }
+            },
+            error: function (x, h, r) {
+            alert("Error: " + x + h + r);
+            }
+        });
+    }
+    getCapitulos(); 
+});
+
+ 
+</script>
 @stop
