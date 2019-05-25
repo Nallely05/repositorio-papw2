@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\modelObra;
+use App\modelSeguir;
 
 class controllerPerfil extends Controller
 {
@@ -44,17 +45,18 @@ class controllerPerfil extends Controller
             array_push($ObrasPublicadas,$mObra);
         }
         //echo var_dump(count($ObrasPublicadas));
-       
+
         $DatosUsuario=DB::table('users')->select()->where('id',$Us->id)->first();
 
         if($DatosUsuario)
         {
             if($ObrasPublicadas)
             {
-            return view('perfil')->with('ObrasPublicadas',$ObrasPublicadas)
-            ->with('id',$Us->id)
-            ->with('nombreUsuario',$ObrasPublicadas[0]->getNombrePublicando())
-            ->with('Yo',true);
+                return view('perfil')->with('ObrasPublicadas',$ObrasPublicadas)
+                ->with('id',$Us->id)
+                ->with('nombreUsuario',$ObrasPublicadas[0]->getNombrePublicando())
+                ->with('Yo',true);
+                
             }
             else {
                 return view('perfil')
@@ -131,6 +133,7 @@ class controllerPerfil extends Controller
             array_push($ObrasPublicadas,$mObra);
         }
         //echo $ObrasPublicadas[0]->getNombrePublicando();
+
 
         if($varUs->id==$id)
         {

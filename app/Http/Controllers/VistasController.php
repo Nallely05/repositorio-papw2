@@ -147,7 +147,14 @@ class VistasController extends Controller
     {
         return view('SobreNosotros');
     }
-
+    public function getListSiguiendo()
+    {
+        $user_info = \Auth::user();
+        $dbListaSeguir = DB::table('tbl_seguir')->select()
+        ->where('idUsuarioSeguidor', $user_info->id)
+        ->get();
+        return response()->json($dbListaSeguir);
+    }
     public function seguir(Request $request)
     {
         if($request->idUsuarioSiguiendo)
