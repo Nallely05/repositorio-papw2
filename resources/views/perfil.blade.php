@@ -150,9 +150,6 @@
 
     <!--Siguiendo-->
             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-            <a href="/perfil"><img src="../Images/Nai.jpg" alt="..." class="FotoDePerfil2 shadow p-3"></a>
-            <a href="/perfil"><img src="../Images/Ejemplo1.jpg" alt="..." class="FotoDePerfil2 shadow p-3"></a>
-            <a href="/perfil"><img src="../Images/Ejemplo2.jpg" alt="..." class="FotoDePerfil2 shadow p-3"></a>
             </div>
   <!--Mi biblioteca-->
 <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
@@ -201,5 +198,35 @@
         </div>
         
     </div>
+<script>
+$(document).ready(function(){
+   
+  function getSeguidores()
+    {
+      $.ajax({
+            url: '/ListaSeguir',
+            async: 'true',
+            type: 'GET',
+            dataType: 'json',
+            success: function (respuesta) {
+              //debugger;
+               for(var i=0; i < respuesta.length;i++)
+               {
+                // debugger;
+                var x = "/perfil/" + respuesta[i].idUsuarioSeguido;
+                 $("#profile").append("<a href='"+x+"'><img src='../Images/Nai.jpg' alt='...' class='FotoDePerfil2 shadow p-3'></a>");
+                 
+               }
+               //debugger;
+            },
+            error: function (x, h, r) {
+                alert("Error: " + x + h + r);
+            }
+        });
+    }
+    getSeguidores(); 
+});
 
+ 
+</script>
 @stop

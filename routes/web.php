@@ -49,3 +49,5 @@ Route::resource('/Capitulo','controllerCapitulo');
 Route::get('/test',function(){
     return view('test');
 });
+
+Route::get('/ListaSeguir', 'VistasController@getListSiguiendo');
