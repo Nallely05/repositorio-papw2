@@ -99,12 +99,11 @@ class VistasController extends Controller
     }
     public function lecturaView(Request $request)
     {
-        if($request->idCap && $request->idObra)
+        if($request->idObra)
         {
-            $idCap=$request->idCap;
             $idObra=$request->idObra;
 
-            $dbCapituloAleer=DB::table('tbl_capitulo')->select()->where('idCapitulo',$idCap)->where('idObra',$idObra)->first();
+            $dbCapituloAleer=DB::table('tbl_capitulo')->select()->where('idObra',$idObra)->first();
             if($dbCapituloAleer)
             {
                 $mCap=new modelCapitulo();
@@ -125,7 +124,7 @@ class VistasController extends Controller
         }
         else
         {
-            return redirect('perfil');
+           return redirect('perfil');
         }
     }
 
