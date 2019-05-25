@@ -124,8 +124,7 @@ class VistasController extends Controller
         }
         else
         {
-            echo "no data";
-           // return redirect('perfil');
+           return redirect('perfil');
         }
     }
 
