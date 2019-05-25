@@ -171,7 +171,8 @@
                         @if(isset($Yo))
                         <button id="btnAgregarCapítulo" type="button" onclick="window.location.href='{{url('/Escribir?id='.$Obrasp->getIdObra())}}'">Agregar capítulo <i class="fas fa-plus" id="IconoMas"></i></button>
                         @endif
-                        <button id="btnAgregarCapítulo" type="button" onclick="window.location.href='{{url('/lectura?idObra='.$Obrasp->getIdObra().'&idCap=1')}}'">Leer</i></button>
+                          <button id="btnAgregarCapítulo" type="button" onclick="window.location.href='{{url('/lectura?idObra='.$Obrasp->getIdObra())}}'">Leer</i></button>
+                        
                         <p class="card-text"><small class="text-muted">Última actualización {{$Obrasp->getAntiguedad()}}</small></p>
                       </div>
                     </div>
