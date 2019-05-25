@@ -203,10 +203,14 @@ $(document).ready(function(){
    
   function getSeguidores()
     {
+      var dataToSend = {
+        id:{{$id}}
+      };
       $.ajax({
             url: '/ListaSeguir',
             async: 'true',
             type: 'GET',
+            data:dataToSend,
             dataType: 'json',
             success: function (respuesta) {
               //debugger;
