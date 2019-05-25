@@ -21,9 +21,12 @@
                                     {{$actu->getTituloObra()}}</h5></a> <!--Título de Ejemplo 6-->
                                     <br>
                                     <a href="{{url('perfil/'.$actu->getIdUsuario())}}"><h6 class="card-title">
-                                    {{$actu->getNombrePublicando()}}</h6></a>
+                                    Autor/a: {{$actu->getNombrePublicando()}}</h6></a>
                                     <br>
-                                  <p class="card-text">{{$actu->getDescripcionObra()}}</p>
+                                  <p class="card-text">{{$actu->getDescripcionObra()}}</p> <br>
+                                  <p class="card-text">{{$actu->getIdGenero()}}</p> <br>
+                                  <p class="card-text">{{$actu->getIdCategoria()}}</p><br>
+                                  <p class="card-text">{{$actu->getIdAudiencia()}}</p><br>
                                   <p class="card-text"><small class="text-muted">Última actualización {{$actu->getAntiguedad()}}</small></p>
                                 </div>
                               </div>
@@ -54,6 +57,10 @@
                                                 <div class="card-body">
                                                     <a href="/lectura"><h5 class="card-title">{{$mismoG->getTituloObra()}}</h5></a>
                                                   <p class="card-text">{{$mismoG->getDescripcionObra()}}</p>
+                                                  <p class="card-text">{{$mismoG->getDescripcionObra()}}</p> <br>
+                                                  <p class="card-text">{{$mismoG->getIdGenero()}}</p> <br>
+                                                  <p class="card-text">{{$mismoG->getIdCategoria()}}</p><br>
+                                                  <p class="card-text">{{$mismoG->getIdAudiencia()}}</p><br>
                                                   <p class="card-text"><small class="text-muted">Última actualización {{$mismoG->getAntiguedad()}}</small></p>
                                                 </div>
                                               </div>

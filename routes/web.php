@@ -26,7 +26,7 @@ Route::get('/lectura', 'VistasController@lecturaView');
 
 Route::get('/politica', 'VistasController@politicaView');
 
-Route::get('/Buscar', 'VistasController@buscarView');
+Route::get('/Buscar', 'VistasController@buscarView')->name('buscar');
 
 Route::get('/sesion', 'VistasController@sesionView');
 

@@ -47,12 +47,12 @@
                         <option value="5">Muerte de un personaje</option>
                         <option value="6">Lenguaje inapropiado</option>
                 </select>
-
+                <!--
                 <select class="textbox" name="catid4" id="catid4" onchange="browseCategories('catid4')">
                         <option value="-1">Todas las historias</option>
                         <option value="1">Terminadas</option>
                         <option value="2">En proceso</option>
-                </select>
+                </select>-->
 
                 <select class="textbox" name="catid5" id="catid5" onchange="browseCategories('catid5')">
                         <option value="-1">Ordenar</option>
@@ -80,7 +80,7 @@
                             <a href="/perfil" class="card-link">Nombre de Autora</a><br>
                             <p class="card-text">Esto es un ejemplo del texto que iría en este espacio. Al crear una historia se le pedirá al usuario agregar un texto corto pero que atrape al lector.</p>
                             <h6 class="card-title">Géneros:</h6> <p>Romance</p><br>
-                            <h6 class="card-title">Estado:</h6> <p>En proceso</p><br>
+                            <!--<h6 class="card-title">Estado:</h6> <p>En proceso</p><br>-->
                             <h6 class="card-title">Advertencias:</h6> <p>Spoilers</p><br>
                             <h6 class="card-title">Audiencia:</h6> <p>Todo publico</p>
                         </div>
@@ -96,7 +96,7 @@
                                 <a href="/perfil" class="card-link">Nombre de Autora2</a><br>
                                 <p class="card-text">Esto es un ejemplo del texto que iría en este espacio. Al crear una historia se le pedirá al usuario agregar un texto corto pero que atrape al lector.</p>
                                 <h6 class="card-title">Géneros:</h6> <p>Fantasía</p><br>
-                                <h6 class="card-title">Estado:</h6> <p>Terminado</p><br>
+                                <!--<h6 class="card-title">Estado:</h6> <p>Terminado</p><br>-->
                                 <h6 class="card-title">Advertencias:</h6> <p>Lenguaje inapropiado</p><br>
                                 <h6 class="card-title">Audiencia:</h6> <p>Mayores de 13</p>
                             </div>
@@ -112,7 +112,7 @@
                                 <a href="/perfil" class="card-link">Nombre de Autora3</a><br>
                                 <p class="card-text">Esto es un ejemplo del texto que iría en este espacio. Al crear una historia se le pedirá al usuario agregar un texto corto pero que atrape al lector.</p>
                                 <h6 class="card-title">Géneros:</h6> <p>Aventura, Humor</p><br>
-                                <h6 class="card-title">Estado:</h6> <p>Terminado</p><br>
+                                <!--<h6 class="card-title">Estado:</h6> <p>Terminado</p><br>-->
                                 <h6 class="card-title">Advertencias:</h6> <p>Ninguno</p><br>
                                 <h6 class="card-title">Audiencia:</h6> <p>Todo publico</p>
                             </div>
@@ -134,7 +134,7 @@
                                 <a href="/perfil" class="card-link">Nombre de Autora4</a><br>
                                 <p class="card-text">Esto es un ejemplo del texto que iría en este espacio. Al crear una historia se le pedirá al usuario agregar un texto corto pero que atrape al lector.</p>
                                 <h6 class="card-title">Géneros:</h6> <p>Romance, Universo alternativo</p><br>
-                                <h6 class="card-title">Estado:</h6> <p>Terminado</p><br>
+                                <!--<h6 class="card-title">Estado:</h6> <p>Terminado</p><br>-->
                                 <h6 class="card-title">Advertencias:</h6> <p>Lemon</p><br>
                                 <h6 class="card-title">Audiencia:</h6> <p>Mayores de 18</p>
                             </div>
@@ -150,7 +150,7 @@
                                     <a href="/perfil" class="card-link">Nombre de Autora2</a><br>
                                     <p class="card-text">Esto es un ejemplo del texto que iría en este espacio. Al crear una historia se le pedirá al usuario agregar un texto corto pero que atrape al lector.</p>
                                     <h6 class="card-title">Géneros:</h6> <p>Drama</p>
-                                    <h6 class="card-title">Estado:</h6> <p>En proceso</p><br>
+                                    <!--<h6 class="card-title">Estado:</h6> <p>En proceso</p><br>-->
                                     <h6 class="card-title">Advertencias:</h6> <p>Muerte de un personaje</p><br>
                                     <h6 class="card-title">Audiencia:</h6> <p>Mayores de 13</p>
                                 </div>
@@ -166,7 +166,7 @@
                                     <a href="/perfil" class="card-link">Nombre de Autora</a><br>
                                     <p class="card-text">Esto es un ejemplo del texto que iría en este espacio. Al crear una historia se le pedirá al usuario agregar un texto corto pero que atrape al lector.</p>
                                     <h6 class="card-title">Géneros:</h6> <p>Romance</p>
-                                    <h6 class="card-title">Estado:</h6> <p>En proceso</p><br>
+                                   <!-- <h6 class="card-title">Estado:</h6> <p>En proceso</p><br>-->
                                     <h6 class="card-title">Advertencias:</h6> <p>Ninguno</p><br>
                                     <h6 class="card-title">Audiencia:</h6> <p>Todo público</p>
                                 </div>

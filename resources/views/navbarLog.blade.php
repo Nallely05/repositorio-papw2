@@ -8,9 +8,9 @@
 
   <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
     
-    <li> <form class="form-inline my-2 my-lg-0">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Buscar por titulo" aria-label="Search">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit"> <a class="nav-link" href="/Buscar"><i class="fas fa-search" id="icnBuscar"></i></a> 
+    <li> <form class="form-inline my-2 my-lg-0" method="GET" action="{{ route('buscar') }}" > @csrf
+                        <input class="form-control mr-sm-2" type="search" placeholder="Buscar por titulo" aria-label="Search" id="inputBuscar" name="inputBuscarPorTitulo">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="btnBuscar" name="btnBuscarPorTitulo"> <a class="nav-link" href="/Buscar"><i class="fas fa-search" id="icnBuscar"></i></a> 
                         </button>
                 </form></li>
 
@@ -31,7 +31,6 @@
                                                      document.getElementById('logout-form').submit();">
                                         Cerrar sesión
                                     </a>
-
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>

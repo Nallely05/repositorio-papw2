@@ -134,8 +134,9 @@ class VistasController extends Controller
         return view('politica');
     }
 
-    public function buscarView()
+    public function buscarView(Request $request)
     {
+
         return view('Buscar');/*Resultados*/
     }
 

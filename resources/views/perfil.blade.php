@@ -56,7 +56,7 @@
             <br>
             <div class="box">
 					<input type="file" name="portadaObra" id="file-2" class="inputfile1 inputfile-2"/>
-					<label for="file-2"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg> <span>Choose a file&hellip;</span></label>
+					<label for="file-2"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg> <span>Elige un archivo&hellip;</span></label>
 				</div>
             <br>
             <textarea class="form-control" aria-label="With textarea" placeholder="Descripción general corta" name="descripcionObra"></textarea>
@@ -126,24 +126,25 @@
                             <li class="nav-item">
                               <a class="nav-link text-primary" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false" style="color:rgb(102, 59, 201) !important;">Mi biblioteca</a>
                             </li>
-                            <li class="nav-item">
+                           <!-- <li class="nav-item">
                               <a class="nav-link text-primary" id="admin-tab" data-toggle="tab" href="#admin" role="tab" aria-controls="admin" aria-selected="false" style="color:rgb(102, 59, 201) !important;">Reportes</a>
-                            </li>
+                            </li>-->
                     </ul>
         <div class="tab-content" id="myTabContent">
 
         <!--Mi información-->
       <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-<br><pre>
-  Nombre: Nallely Alfano Saldaña
+<br>
+<pre> Nombre:{{Auth::User()->name}}</pre>
+<pre> Correo:{{Auth::User()->email}}</pre>
+ <!-- Nombre: Nallely Alfano Saldaña
   Edad: 22 años
-  Descripción: Dibujante y escritora en tiempo libre.
-</pre>                        
-  <pre>
+  Descripción: Dibujante y escritora en tiempo libre.-->                      
+   <!--<pre>
   <iframe width="319" height="180" src="https://www.youtube.com/embed/nt9c0UeYhFc?list=LLfc3W4Rn1jpBLR4U7qns2Bw" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</pre>
+</pre>-->
 @if(isset($Yo))
-<a href="/politica">&nbsp;Editar información</a>
+<!--<a href="/politica">&nbsp;Editar información</a>-->
 @endif
 </div>
 
@@ -182,20 +183,20 @@
         </div>
         
           <!--ADMIN-->
-          <div class="tab-pane fade" id="admin" role="tabpanel" aria-labelledby="admin-tab">
+           <!--<div class="tab-pane fade" id="admin" role="tabpanel" aria-labelledby="admin-tab">
               <br>
-              <h5 style="color:black;">(Esta pestaña solo se mostrará si el usuario es administrador)</h5><br>
+              <h5 style="color:black;">(Esta pestaña solo se mostrará si el usuario es administrador)</h5><br>-->
               <!--Reportes-->
-              <div class="card" style="max-width: 26rem; border-color:#6f42c1;">
+              <!--<div class="card" style="max-width: 26rem; border-color:#6f42c1;">
                 <div class="card-header"><a href="/lectura" style="color: rgb(143, 110, 219);">Título de capítulo con reporte</a></div>
-                <div class="card-body">
-                  <h5 class="card-title"><a href="/perfil" style="color: rgb(143, 110, 219);">Nombre de usuario</a></h5>
-                  <p class="card-text">"Preview de comentario reportado"</p>
-                  <button type="submit" class="btn btn-primary" style="background-color: #66bb6a; border-style:none;">Descartar reporte</button> <button type="submit" class="btn btn-primary" style="background-color: #ef5350; border-style:none;">Eliminar comentario</button>
+                  <div class="card-body">
+                    <h5 class="card-title"><a href="/perfil" style="color: rgb(143, 110, 219);">Nombre de usuario</a></h5>
+                    <p class="card-text">"Preview de comentario reportado"</p>
+                    <button type="submit" class="btn btn-primary" style="background-color: #66bb6a; border-style:none;">Descartar reporte</button> <button type="submit" class="btn btn-primary" style="background-color: #ef5350; border-style:none;">Eliminar comentario</button>
+                  </div>
                 </div>
               </div>
-                    </div>
-            </div>
+          </div>-->
         </div>
         
     </div>
