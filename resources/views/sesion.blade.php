@@ -32,7 +32,7 @@
                 <th>
                     <td>
                         <form style="padding: 10%;" action="/CrearCuenta">
-                            <h3>¿Aun no eres usuario de Hispanofic? Únete:</h3>
+                            <h3>¿Aún no eres usuario de Hispanofic? Únete:</h3>
                                 <button type="submit" class="btn btn-primary">Crear cuenta</button> 
                                 <br>
                         </form>

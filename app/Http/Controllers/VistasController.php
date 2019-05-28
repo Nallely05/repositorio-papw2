@@ -15,10 +15,7 @@ class VistasController extends Controller
         return view('landingpage');
     }
 
-    public function perfilView()
-    {
-       
-    }
+    public function perfilView() {}
 
     public function crearCuentaView()
     {
@@ -126,7 +123,41 @@ class VistasController extends Controller
         {
            return redirect('perfil');
         }
+
+        //Intento comentarios
+/*
+        $dbComentarios=DB::table('tbl_comentario')->select()->where('idCapitulo', $request->idCapitulo)->get();
+        
+        $comentarios=array();
+        foreach($dbComentarios as $coment)
+        {
+            $mAct=new modelComentario();
+            $mAct->setIdComentario($coment->idComentario);
+            $mAct->setIdCapitulo($coment->idCapitulo);
+            $mAct->setIdUsuario($coment->idUsuario);
+            $mAct->setComentario($coment->comentario);
+            $mAct->setEstado($coment->estado);
+            $mAct->setCreated_at($coment->created_at);
+           
+
+            array_push($comentarios,$coment);
+        }    */
+
     }
+
+   /* public function getListComentarios(Request $request)
+    {
+        $dbListaComentarios=null;
+        if($request->idCapitulo)
+        {
+            $dbListaComentarios = DB::table('tbl_comentario')->select()
+            ->where('idComentario', $request->idCapitulo)
+            ->get();
+        }
+        
+        return response()->json($dbListaComentarios);
+    }    */
+
 
     public function politicaView()
     {

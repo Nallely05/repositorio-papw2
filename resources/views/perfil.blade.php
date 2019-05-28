@@ -1,15 +1,21 @@
 @extends('layouts.master')
 @section('title','Perfil')
 @section('contenido')
+
+
 <br>
     <div class="container-fluid">
         <div class="card">
-            <div class="card-body"><!--Imágenes de perfil-->
-                <img src="../Images/Perfil2.jpg" alt="..." class="FotoDePerfil shadow p-3" title="Foto de perfil">
-                <!--
-                  <button type="button" class="btn btn-dark">Cambiar foto de portada</button>
-                -->
-                <img src="../Images/Ejemplo4.jpg"  class="img-fluid" alt="Responsive image" style="max-height: 400px; object-fit: cover;" title="Foto de portada">
+            <div class="card-body" id="no-hover"><!--Imágenes de perfil-->
+                <img src="../Images/Perfil2.jpg" alt="..." class="FotoDePerfil shadow p-3" title="Foto de perfil" id="fotoPerfil">
+                <img src="../Images/editPerfil.png" alt="..." class="FotoDePerfil shadow p-3" title="Foto de perfil" id="editFotoPerfil" style="cursor: pointer;">
+                  
+                <!--<button type="button" class="btn-">Cambiar foto de portada</button>-->
+                <img src="../Images/Ejemplo4.jpg"  class="img-fluid" alt="Responsive image" style="max-height: 400px; object-fit: cover;" title="Foto de portada" id="fotoPortada">
+                <div class="box" id="cambiarPortada">
+                <input type="file" name="cambiarFotoPortada" id="file-3" class="inputfile1"/>
+                <label for="file-3"><span>Cambiar foto de portada &hellip;</span></label>
+                </div>
             </div>
             <div class="card-body">
                 <span>
@@ -35,7 +41,6 @@
                     @endif
                 </div>
         </div>
-
         
 <!-- Modal -->
 
@@ -126,27 +131,54 @@
                             <li class="nav-item">
                               <a class="nav-link text-primary" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false" style="color:rgb(102, 59, 201) !important;" title="Historias creadas">Mi biblioteca</a>
                             </li>
-                           <!-- <li class="nav-item">
+                            <li class="nav-item">
                               <a class="nav-link text-primary" id="admin-tab" data-toggle="tab" href="#admin" role="tab" aria-controls="admin" aria-selected="false" style="color:rgb(102, 59, 201) !important;">Reportes</a>
-                            </li>-->
+                            </li>
                     </ul>
         <div class="tab-content" id="myTabContent">
 
         <!--Mi información-->
-      <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-<br>
-<pre> Nombre:{{Auth::User()->name}}</pre>
-<pre> Correo:{{Auth::User()->email}}</pre>
- <!-- Nombre: Nallely Alfano Saldaña
-  Edad: 22 años
-  Descripción: Dibujante y escritora en tiempo libre.-->                      
-   <!--<pre>
+<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+  <br>
+  <h5><pre> Nombre:{{Auth::User()->name}}</pre></h5>
+  <h5><pre> Correo:{{Auth::User()->email}}</pre></h5>
+  <pre>
   <iframe width="319" height="180" src="https://www.youtube.com/embed/nt9c0UeYhFc?list=LLfc3W4Rn1jpBLR4U7qns2Bw" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</pre>-->
-@if(isset($Yo))
-<!--<a href="/politica">&nbsp;Editar información</a>-->
-@endif
+  </pre> <!-- Nombre: Nallely Alfano Saldaña
+    Edad: 22 años
+    Descripción: Dibujante y escritora en tiempo libre.-->                      
+    <!---->
+  @if(isset($Yo))
+  <!--<a href="/politica">&nbsp;Editar información</a>-->
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalEditarInfo">Editar información</button>
+  @endif
 </div>
+
+<div class="modal fade" id="modalEditarInfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Información de perfil</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+  <form id="formEditarInfo" method="post" enctype= "multipart/form-data" action="/perfil"> @csrf
+        <h5>Nombre:</h5><input type="text"><br>
+        <h5>Correo:</h5><input type="text"><br>
+        <h5>Video:</h5><input type="text"><br>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="submit" class="btn btn-primary">Guardar cambios</button>
+  </form>
+      </div>
+    </div>
+  </div>
+</div>
+
 
     <!--Siguiendo-->
             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
@@ -181,11 +213,11 @@
         </div>
         
           <!--ADMIN-->
-           <!--<div class="tab-pane fade" id="admin" role="tabpanel" aria-labelledby="admin-tab">
+           <div class="tab-pane fade" id="admin" role="tabpanel" aria-labelledby="admin-tab">
               <br>
-              <h5 style="color:black;">(Esta pestaña solo se mostrará si el usuario es administrador)</h5><br>-->
+              <h5 style="color:black;">(Esta pestaña solo se mostrará si el usuario es administrador)</h5><br>
               <!--Reportes-->
-              <!--<div class="card" style="max-width: 26rem; border-color:#6f42c1;">
+              <div class="card" style="max-width: 26rem; border-color:#6f42c1;">
                 <div class="card-header"><a href="/lectura" style="color: rgb(143, 110, 219);">Título de capítulo con reporte</a></div>
                   <div class="card-body">
                     <h5 class="card-title"><a href="/perfil" style="color: rgb(143, 110, 219);">Nombre de usuario</a></h5>
@@ -194,13 +226,36 @@
                   </div>
                 </div>
               </div>
-          </div>-->
+          </div>
         </div>
-        
     </div>
+       
+<script type="text/javascript" src="../js/bootstrap.js">
+
+
+</script>
 <script>
 $(document).ready(function(){
-   
+  
+$("#fileUpload").hide();
+$("#editFotoPerfil").hide();
+$("#cambiarPortada").hide();
+
+$("#fotoPerfil").hover(function(){
+  $("#editFotoPerfil").show();
+  $("#cambiarPortada").hide();
+});
+
+$("#fotoPortada").hover(function(){
+  $("#editFotoPerfil").hide();
+  $("#cambiarPortada").show();
+});
+
+$("#no-hover").hover(function(){
+  $("#editFotoPerfil").hide();
+  $("#cambiarPortada").hide();
+});
+
   function getSeguidores()
     {
       var dataToSend = {
@@ -231,6 +286,5 @@ $(document).ready(function(){
     getSeguidores(); 
 });
 
- 
 </script>
 @stop

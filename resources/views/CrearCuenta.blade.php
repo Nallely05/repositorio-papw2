@@ -33,7 +33,7 @@
                         </div>
                          <!--Intento de edad -->
                          <div class="col-md-3 mb-2">
-                         <label for="validationServer01">Fecha de cumpleaños:</label><br>
+                         <label for="validationServer01">Fecha de nacimiento:</label><br>
                          <input type="date">
                         </div>
                         <!-- Original-->

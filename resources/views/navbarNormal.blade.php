@@ -14,6 +14,9 @@
     <a class="nav-link" href="/SobreNosotros">Acerca de nosotros</a>
     </li>
     <li class="nav-item">
+    <a class="nav-link" href="/CrearCuenta">Crear cuenta</a>
+    </li>
+    <li class="nav-item">
     <a class="nav-link" href="/sesion">Iniciar sesión</a>
     </li>
   </ul>

@@ -1,9 +1,9 @@
 
 <header class="navbar navbar-expand navbar-dark flex-column flex-md-row bd-navbar" style="background: rgb(102, 59, 201);">
 @guest
-  <a class="navbar-brand mr-0 mr-md-2" href="/" aria-label="Bootstrap"><img src="../Images/IconoPeque1.png" width="30" height="30" alt="" title="Ir a dashboard"></a>
+  <a class="navbar-brand mr-0 mr-md-2" href="/" aria-label="Bootstrap"><img src="../Images/IconoPeque1.png" width="30" height="30" alt="" title="Ir a págna principal"></a>
 @else
-  <a class="navbar-brand mr-0 mr-md-2" href="/dashboard" aria-label="Bootstrap"><img src="../Images/IconoPeque1.png" width="30" height="30" alt="" title="Ir a dashboard"></a>
+  <a class="navbar-brand mr-0 mr-md-2" href="/dashboard" aria-label="Bootstrap"><img src="../Images/IconoPeque1.png" width="30" height="30" alt="" title="Ir a inicio"></a>
 @endguest
 
   <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">

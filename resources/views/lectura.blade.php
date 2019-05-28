@@ -88,29 +88,31 @@
                 <div class="container">
                     <div class="card card-body">
                         <div class="container">
-                                <div class="row">
-                                    <div class="col"><!--Espacio para foto de perfil-->
+                           
+                                <div class="row"id="comentarios">
+                                        <div class="col"><!--Espacio para foto de perfil-->
                                         <img src="../Images/Perfil2.jpg" class="align-self-start mr-3" width="100" height="100" alt="...">
-                                    </div>
-                                    <div class="col-6"><!--Espacio para Comentario-->
-                                        <div class="media">
-                                                <div class="media-body">
-                                                    <a class="nav-link" href="/perfil"><h5 class="mt-0">Usuaria Registrada</h5></a>
-                                                    <p>Gran capítulo ¡Espero la continuación!</p>
-                                                </div>
                                         </div>
-                                    </div>
-                                    <div class="col"><!--Espacio para opciones-->
-                                        <div class="dropdown">
-                                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    <i class="fas fa-ellipsis-h"></i>
-                                            </button>
-                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                <a class="dropdown-item" href="#">Denunciar comentario</a>
+                                        <div class="col-6"><!--Espacio para Comentario-->
+                                            <div class="media">
+                                                    <div class="media-body">
+                                                        <a class="nav-link" href="/perfil"><h5 class="mt-0">Usuaria Registrada</h5></a>
+                                                        <p>Gran capítulo ¡Espero la continuación!</p>
+                                                    </div>
                                             </div>
-                                        </div> 
-                                    </div>
+                                        </div>
+                                        <div class="col"><!--Espacio para opciones-->
+                                            <div class="dropdown">
+                                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <i class="fas fa-ellipsis-h"></i>
+                                                </button>
+                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                    <a class="dropdown-item" href="#">Denunciar comentario</a>
+                                                </div>
+                                            </div> 
+                                        </div>
                                 </div>
+                          
                         </div>
                     </div>
                 </div>
@@ -149,6 +151,36 @@ $(document).ready(function(){
     getCapitulos(); 
 });
 
- 
+ /*
+function getListComentarios()
+    {
+      var dataToSend = {
+        idCapitulo:idCapitulo
+      };
+      $.ajax({
+            url: '/ListaComentarios',
+            async: 'true',
+            type: 'GET',
+            data:dataToSend,
+            dataType: 'json',
+            success: function (respuesta) {
+              //debugger;
+               for(var i=0; i < respuesta.length;i++)
+               {
+                // debugger;
+                var idk = "/lectura/" + respuesta[i].idComentario;
+                 $("#profile").append("<a href='"+x+"'><img src='../Images/Nai.jpg' alt='...' class='FotoDePerfil2 shadow p-3'></a>");
+                 
+               }
+               //debugger;
+            },
+            error: function (x, h, r) {
+                alert("Error: " + x + h + r);
+            }
+        });
+    }
+    getSeguidores(); 
+});    */
+
 </script>
 @stop
