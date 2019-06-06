@@ -39,7 +39,8 @@ Route::get('img/cap','controllerImagenes@getImgPortadaCap');
 Route::get('img/perfil','controllerImagenes@getImgPerfil');
 Route::get('img/portada','controllerImagenes@getImgPortada');
 
-
+Route::post('img/perfil','controllerImagenes@postImgPerfil');
+Route::post('img/portada','controllerImagenes@postImgPortada');
 Route::post('/seguir', 'VistasController@seguir');
 
 Auth::routes();

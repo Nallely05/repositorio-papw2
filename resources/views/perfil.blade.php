@@ -7,19 +7,26 @@
     <div class="container-fluid">
         <div class="card">
             <div class="card-body" id="no-hover"><!--Imágenes de perfil-->
-                <img src="../Images/Perfil2.jpg" alt="..." class="FotoDePerfil shadow p-3" title="Foto de perfil" id="fotoPerfil">
-                <img src="../Images/editPerfil.png" alt="..." class="FotoDePerfil shadow p-3" title="Foto de perfil" id="editFotoPerfil" style="cursor: pointer;">
-                  
+                <img src="{{url('img/perfil?id='.$id)}}" alt="..." class="FotoDePerfil shadow p-3" title="Foto de perfil" id="fotoPerfil">
+                <img src="../Images/editPerfil.png" alt="..." class="FotoDePerfil shadow p-3" title="Foto de perfil" id="editFotoPerfil" style="cursor: pointer;" data-toggle="modal" data-target="#modal-cambiarFotoDePerfil" >
+            
                 <!--<button type="button" class="btn-">Cambiar foto de portada</button>-->
-                <img src="../Images/Ejemplo4.jpg"  class="img-fluid" alt="Responsive image" style="max-height: 400px; object-fit: cover;" title="Foto de portada" id="fotoPortada">
+                <img src="{{url('img/portada?id='.$id)}}"  class="img-fluid" alt="Responsive image" style="max-height: 400px; object-fit: cover;" title="Foto de portada" id="fotoPortada">
+                <form method="POST" action="img/portada" enctype="multipart/form-data">
+                @csrf
                 <div class="box" id="cambiarPortada">
                 <input type="file" name="cambiarFotoPortada" id="file-3" class="inputfile1"/>
                 <label for="file-3"><span>Cambiar foto de portada &hellip;</span></label>
-                </div>
+                <input type="submit" value="Guardar" class="btn btn-primary" style="background:rgb(102, 59, 201);">
+                </div></form>
             </div>
             <div class="card-body">
                 <span>
+
                     <h3>{{$nombreUsuario}}
+                    @guest
+                    <input type="hidden" name="idUsuarioSiguiendo" value="{{$id}}">
+                    @else 
                       @if(isset($seguir))
                       <form method="post" action="{{url('/seguir')}}">
                         <input type="hidden" name="idUsuarioSiguiendo" value="{{$id}}">
@@ -33,6 +40,7 @@
                         </button> 
                       </form> 
                       @endif
+                      @endguest
                     </h3>
                 </span>
                     <!-- Button crear historia -->
@@ -54,6 +62,9 @@
           </button>
         </div>
         <div class="modal-body">
+        @guest
+        kjnknkn
+        @else
         <form id="formCrearHistoria" method="post" enctype= "multipart/form-data" action="/Obra"> <!-- FORM -->
         @csrf
         <input type="hidden" name="idUsuarioPerfil" value="{{ Auth::user()->id }}">
@@ -112,12 +123,46 @@
           <button type="submit" class="btn btn-primary">Crear</button>
 
           </form><!-- TERMINO DEL FORM --> 
+            @endguest
         </div>
       </div>
     </div>
   </div>
 
 <!-- Modal -->
+
+<!-- Modal 2-->
+
+<div class="modal fade" id="modal-cambiarFotoDePerfil" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalCenterTitle">Cambiar foto de perfil</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+        <form method="POST" action="img/perfil" enctype="multipart/form-data">
+                @csrf
+              
+                <div class="box">
+                <input type="file" name="fotoPerfilIMG" id="file-perfil" class="inputfile1" accept="image/*"/>
+                <label for="file-perfil" style="background:rgb(102, 59, 201); color:white;"><span>Cambiar foto de perfil &hellip;</span></label>
+                </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-primary">Guardar cambio</button>
+          </form>
+         <!-- TERMINO DEL FORM --> 
+        
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Modal 2-->
     
         <div class="card"><!--Pestañas-->
             <div class="card-body">
@@ -131,17 +176,16 @@
                             <li class="nav-item">
                               <a class="nav-link text-primary" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false" style="color:rgb(102, 59, 201) !important;" title="Historias creadas">Mi biblioteca</a>
                             </li>
-                            <li class="nav-item">
+                            <!-- <li class="nav-item">
                               <a class="nav-link text-primary" id="admin-tab" data-toggle="tab" href="#admin" role="tab" aria-controls="admin" aria-selected="false" style="color:rgb(102, 59, 201) !important;">Reportes</a>
-                            </li>
+                            </li> -->
                     </ul>
         <div class="tab-content" id="myTabContent">
 
         <!--Mi información-->
 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
   <br>
-  <h5><pre> Nombre:{{Auth::User()->name}}</pre></h5>
-  <h5><pre> Correo:{{Auth::User()->email}}</pre></h5>
+  <h5><pre> Nombre:{{$nombreUsuario}}</pre></h5>
   <pre>
   <iframe width="319" height="180" src="https://www.youtube.com/embed/nt9c0UeYhFc?list=LLfc3W4Rn1jpBLR4U7qns2Bw" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   </pre> <!-- Nombre: Nallely Alfano Saldaña
@@ -150,8 +194,8 @@
     <!---->
   @if(isset($Yo))
   <!--<a href="/politica">&nbsp;Editar información</a>-->
-  <!-- Button trigger modal -->
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalEditarInfo">Editar información</button>
+  <!-- Button trigger modal 
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalEditarInfo">Editar información</button>-->
   @endif
 </div>
 
@@ -273,7 +317,7 @@ $("#no-hover").hover(function(){
                {
                 // debugger;
                 var x = "/perfil/" + respuesta[i].idUsuarioSeguido;
-                 $("#profile").append("<a href='"+x+"'><img src='../Images/Nai.jpg' alt='...' class='FotoDePerfil2 shadow p-3'></a>");
+                 $("#profile").append("<a href='"+x+"'><img src='img/perfil?id="+ respuesta[i].idUsuarioSeguido+"' alt='...' class='FotoDePerfil2 shadow p-3'></a>");
                  
                }
                //debugger;

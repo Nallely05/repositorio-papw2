@@ -134,7 +134,7 @@ class controllerPerfil extends Controller
         }
         //echo $ObrasPublicadas[0]->getNombrePublicando();
 
-
+        if($varUs){
         if($varUs->id==$id)
         {
             return view('perfil')
@@ -145,6 +145,14 @@ class controllerPerfil extends Controller
         }
         else
         {
+            $Seguir= new VistasController();
+            return view('perfil')
+            ->with('ObrasPublicadas',$ObrasPublicadas)
+            ->with('id',$id)
+            ->with('nombreUsuario',$ObrasPublicadas[0]->getNombrePublicando())
+            ->with('seguir',$Seguir->getSeguir($id));
+        }}
+        else{
             $Seguir= new VistasController();
             return view('perfil')
             ->with('ObrasPublicadas',$ObrasPublicadas)

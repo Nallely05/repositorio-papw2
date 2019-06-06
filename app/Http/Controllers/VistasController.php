@@ -296,8 +296,9 @@ class VistasController extends Controller
         if($request->idUsuarioSiguiendo)
         {
             $idUsuarioLog=\Auth::user();
-            $mSeguir= new modelSeguir();
-            $sigue= DB::table('tbl_seguir')->select()
+            
+                $mSeguir= new modelSeguir();
+                $sigue= DB::table('tbl_seguir')->select()
                    ->where('idUsuarioSeguidor',$idUsuarioLog->id)
                    ->where('idUsuarioSeguido',$request->idUsuarioSiguiendo)
                    ->first();
@@ -321,26 +322,34 @@ class VistasController extends Controller
                         )
                     );
                     return back();
-                   }
-        }
+                   
+                }
+            }
       
     }
 
     public function getSeguir($id)
     {
         $idUsuarioLog=\Auth::user();
-        $sigue= DB::table('tbl_seguir')->select()
-                   ->where('idUsuarioSeguidor',$idUsuarioLog->id)
-                   ->where('idUsuarioSeguido',$id)
-                   ->first();
-        if($sigue)
+        if($idUsuarioLog)
         {
-            return true;
+            $sigue= DB::table('tbl_seguir')->select()
+                ->where('idUsuarioSeguidor',$idUsuarioLog->id)
+                ->where('idUsuarioSeguido',$id)
+                ->first();
+
+            if($sigue)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
-        else
-        {
-            return false;
-        }
+        return false;
+        
+        
     }
     public function adminView()
     {
