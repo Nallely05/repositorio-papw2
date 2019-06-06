@@ -62,38 +62,46 @@
             </button>
             <div class="collapse" id="collapseExample">
                 <!--Intento nuevo comentario-->
+                @guest
+                <input type="hidden"id="idCap" value="{{$capituloAleer->getIdCapitulo()}}" name="idCapitulo">
+                @else
                 <div class="container">
                         <div class="card card-body">
                             <div class="container">
+
                                     <div class="row">
                                         <div class="col"><!--Espacio para foto de perfil-->
                                             <img src="../Images/Perfil.jpg" class="align-self-start mr-3" width="100" height="100" alt="...">
                                         </div>
                                         <div class="col-6"><!--Espacio para Comentario-->
+                                        <form  method="POST" action="/comentar">
+                                        @csrf
                                             <div class="media">
                                                     <div class="media-body">
-                                                        <a class="nav-link" href="#"><h5 class="mt-0">NombreDeQuienComenta</h5></a>
-                                                        <textarea class="form-control" aria-label="With textarea"></textarea>
+                                                        <a class="nav-link" href="#"><h5 class="mt-0">{{\Auth::user()->name}}</h5></a>
+                                                        <input type="hidden"id="idCap" value="{{$capituloAleer->getIdCapitulo()}}" name="idCapitulo">
+                                                        <textarea class="form-control" aria-label="With textarea" name="comentario" id="textoComentario"></textarea>
                                                     </div>
                                             </div>
-                                        </div>
-                                        <div class="col"><!--Espacio para opciones-->
-                                            <button type="button" class="btnEnviarComentario">Comentar</button>
-                                        </div>
+                                            </div>
+                                            <div class="col"><!--Espacio para opciones-->
+                                                <button type="button" id="btnComentar" class="btnEnviarComentario">Comentar</button>
+                                            </div>
+                                        </form>
                                     </div>
-                            </div>
+                            </div> 
                         </div>
-                    </div>
-                <!--EjemploComentario-->
-                <div class="container">
-                    <div class="card card-body">
+                    </div> @endguest
+              <!--EjemploComentario-->
+                <div id="listaComentarios"></div>
+                      <!--<div class="container">
+                    <div class="card card-body">             
                         <div class="container">
-                           
                                 <div class="row"id="comentarios">
-                                        <div class="col"><!--Espacio para foto de perfil-->
+                                        <div class="col">
                                         <img src="../Images/Perfil2.jpg" class="align-self-start mr-3" width="100" height="100" alt="...">
                                         </div>
-                                        <div class="col-6"><!--Espacio para Comentario-->
+                                        <div class="col-6">
                                             <div class="media">
                                                     <div class="media-body">
                                                         <a class="nav-link" href="/perfil"><h5 class="mt-0">Usuaria Registrada</h5></a>
@@ -101,7 +109,7 @@
                                                     </div>
                                             </div>
                                         </div>
-                                        <div class="col"><!--Espacio para opciones-->
+                                        <div class="col">
                                             <div class="dropdown">
                                                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                         <i class="fas fa-ellipsis-h"></i>
@@ -112,10 +120,9 @@
                                             </div> 
                                         </div>
                                 </div>
-                          
                         </div>
                     </div>
-                </div>
+                </div>-->
             </div>
         </div>
     </div>
@@ -127,8 +134,8 @@ $(document).ready(function(){
     {
         var dataToSend={
             idObra:{{$capituloAleer->getIdObra()}}
-        };
-      $.ajax({
+            };
+            $.ajax({
             url: '/ListaCaps',
             async: 'true',
             type: 'GET',
@@ -149,38 +156,85 @@ $(document).ready(function(){
         });
     }
     getCapitulos(); 
-});
 
- /*
+
+ 
 function getListComentarios()
     {
       var dataToSend = {
-        idCapitulo:idCapitulo
+        idCapitulo:$("#idCap").val()
       };
       $.ajax({
-            url: '/ListaComentarios',
+            url: '/listaComentarios', 
             async: 'true',
             type: 'GET',
             data:dataToSend,
             dataType: 'json',
             success: function (respuesta) {
-              //debugger;
+             
+              $("#listaComentarios").text("");
                for(var i=0; i < respuesta.length;i++)
                {
-                // debugger;
-                var idk = "/lectura/" + respuesta[i].idComentario;
-                 $("#profile").append("<a href='"+x+"'><img src='../Images/Nai.jpg' alt='...' class='FotoDePerfil2 shadow p-3'></a>");
-                 
+                var coment="<div class='container' style='margin-top:8px; margin-bottom:8px;'><div class='card card-body'> <div class='container'><div class='row'id='comentarios'>"+
+                                        "<div class='col'>"+
+                                        "<img src='' class='align-self-start mr-3' width='100' height='100' alt='...'>"+
+                                        "</div>"+
+                                        "<div class='col-6'>"+
+                                            "<div class='media'>"+
+                                                    "<div class='media-body'>"+
+                                                        "<a class='nav-link' href='/perfil'><h5 class='mt-0'></h5></a>"+
+                                                        "<p>"+respuesta[i].comentario+"</p>"+
+                                                    "</div>"+
+                                            "</div>"+
+                                        "</div>"+
+                                        "<div class='col'><!--Espacio para opciones-->"+
+                                            "<div class='dropdown'>"+
+                                                "<button class='btn btn-secondary dropdown-toggle' type='button' id='dropdownMenuButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>"+
+                                                        "<i class='fas fa-ellipsis-h'></i>"+
+                                                "</button>"+
+                                                "<div class='dropdown-menu' aria-labelledby='dropdownMenuButton'>"+
+                                                    "<a class='dropdown-item' href='#'>Denunciar comentario</a>"+
+                                                "</div>"+
+                                            "</div>"+ 
+                                        "</div>"+
+                                "</div></div></div></div>";
+                                $("#listaComentarios").append(coment);
                }
-               //debugger;
+              
             },
             error: function (x, h, r) {
                 alert("Error: " + x + h + r);
             }
         });
     }
-    getSeguidores(); 
-});    */
+    getListComentarios();
+  
+    $("#btnComentar").click(function(){
+        insertarComentario2();
+        getListComentarios();
+        $("#textoComentario").val("");
+    });
+
+    function insertarComentario2()
+    {
+      var dataToSend = {
+        _token:"{{csrf_token()}}",idCapitulo:$("#idCap").val(),comentario:$("#textoComentario").val()
+      };
+      $.ajax({
+            url: '/comentar',
+            async: 'true',
+            type: 'POST',
+            data:dataToSend,
+            dataType: 'json',
+            success: function (respuesta) {
+              debugger;
+            },
+            error: function (x, h, r) {
+                alert("Error: " + x + h + r);
+            }
+        });
+    } 
+});   
 
 </script>
 @stop

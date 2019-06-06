@@ -32,4 +32,28 @@ class controllerImagenes extends Controller
             return $response;
         }
     }
+
+    public function getImgPerfil(Request $request)
+    {
+        if($request->id)
+        {
+            $id= $request->id;
+            $dirImg=DB::table('user')->select('imagenPerfil')->where("id",$request->id)->first();
+            $response = response()->make(Storage::get($dirImg->imagenPerfil),200);
+            $response->header('Content-Type','image/png');
+            return $response;
+        }
+    }
+
+    public function getImgPortada(Request $request)
+    {
+        if($request->id)
+        {
+            $id= $request->id;
+            $dirImg=DB::table('user')->select('imagenPortada')->where("id",$request->id)->first();
+            $response = response()->make(Storage::get($dirImg->imagenPortada),200);
+            $response->header('Content-Type','image/png');
+            return $response;
+        }
+    }
 }

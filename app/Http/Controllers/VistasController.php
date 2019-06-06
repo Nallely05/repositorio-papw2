@@ -111,8 +111,19 @@ class VistasController extends Controller
                 $mCap->setContenidoCapitulo($dbCapituloAleer->contenidoCapitulo);
                 $mCap->setCreated_at($dbCapituloAleer->created_at);
                 $mCap->setUpdateded_at($dbCapituloAleer->updated_at);
-
+                //return dd(\Auth::user()->name);
                 return view('lectura')->with('capituloAleer',$mCap); 
+
+                $Us=\Auth::user();
+                $DatosUsuario=DB::table('users')->select()->where('id',$Us->id)->first();
+
+                if($DatosUsuario)
+                {
+                    return view('lectura')
+                    ->with('id',$Us->id)
+                    ->with('nombreUsuario',$DatosUsuario->name)
+                    ->with('Yo',true);
+                }
             }
             else
             {
@@ -123,6 +134,7 @@ class VistasController extends Controller
         {
            return redirect('perfil');
         }
+
 
         //Intento comentarios
 /*
@@ -145,18 +157,38 @@ class VistasController extends Controller
 
     }
 
-   /* public function getListComentarios(Request $request)
+    public function insertarComentario(Request $request)
+    {
+
+        if($request->idCapitulo)
+        {
+            $usuario=\Auth::user();
+            DB::table('tbl_comentario')->insert(["idCapitulo"=>$request->idCapitulo, "idUsuario"=>$usuario->id,
+            "comentario"=>$request->comentario, "estado"=>1]);
+
+            $id=DB::getPdo()->lastInsertId();
+            if($id!=null)
+            {
+                return $id;
+            
+            }
+            else{ return -1;}
+        }
+        return -1;
+    }
+
+    public function getListComentarios(Request $request)
     {
         $dbListaComentarios=null;
         if($request->idCapitulo)
         {
             $dbListaComentarios = DB::table('tbl_comentario')->select()
-            ->where('idComentario', $request->idCapitulo)
+            ->where('idCapitulo', $request->idCapitulo)->orderBy("created_at","desc")
             ->get();
         }
         
         return response()->json($dbListaComentarios);
-    }    */
+    }   
 
 
     public function politicaView()

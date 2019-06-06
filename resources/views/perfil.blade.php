@@ -213,11 +213,11 @@
         </div>
         
           <!--ADMIN-->
-           <div class="tab-pane fade" id="admin" role="tabpanel" aria-labelledby="admin-tab">
+           <!--<div class="tab-pane fade" id="admin" role="tabpanel" aria-labelledby="admin-tab">
               <br>
-              <h5 style="color:black;">(Esta pestaña solo se mostrará si el usuario es administrador)</h5><br>
+              <h5 style="color:black;">(Esta pestaña solo se mostrará si el usuario es administrador)</h5><br>-->
               <!--Reportes-->
-              <div class="card" style="max-width: 26rem; border-color:#6f42c1;">
+              <!--<div class="card" style="max-width: 26rem; border-color:#6f42c1;">
                 <div class="card-header"><a href="/lectura" style="color: rgb(143, 110, 219);">Título de capítulo con reporte</a></div>
                   <div class="card-body">
                     <h5 class="card-title"><a href="/perfil" style="color: rgb(143, 110, 219);">Nombre de usuario</a></h5>
@@ -226,7 +226,7 @@
                   </div>
                 </div>
               </div>
-          </div>
+          </div>-->
         </div>
     </div>
        

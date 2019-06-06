@@ -36,6 +36,9 @@ Route::get('/admin', 'VistasController@adminView');
 
 Route::get('img/obra','controllerImagenes@getImgObra');
 Route::get('img/cap','controllerImagenes@getImgPortadaCap');
+Route::get('img/perfil','controllerImagenes@getImgPerfil');
+Route::get('img/portada','controllerImagenes@getImgPortada');
+
 
 Route::post('/seguir', 'VistasController@seguir');
 
@@ -54,4 +57,5 @@ Route::get('/ListaSeguir', 'VistasController@getListSiguiendo');
 
 Route::get('/ListaCaps', 'VistasController@getListCaps');
 
-Route::get('/ListaComentarios', 'VistasController@getListComentarios');
+Route::get('/listaComentarios', 'VistasController@getListComentarios');
+Route::post('/comentar', 'VistasController@insertarComentario');
