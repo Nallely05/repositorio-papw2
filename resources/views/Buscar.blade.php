@@ -92,10 +92,9 @@
                                 <small class="text-muted">Última actualización {{$Bus->getAntiguedad()}}</small>
                             </div>
                     </div>
-                    @endforeach 
-                </div>
-<!--RESULTADOS
-                    <div class="card">
+                </div> @endforeach 
+
+                    <div class="card"><!--RESULTADOS
                         <img src="../Images/Ellos2.jpg" class="card-img-top" alt="Responsive image">
                         <div class="card-body">
                         <a href="/lectura"><h5 class="card-title">Título de Ejemplo 2</h5></a>
@@ -179,9 +178,9 @@
                             <div class="card-footer">
                                 <small class="text-muted">Última actualización hace 5 días</small>
                             </div>
-                        </div>               
-                    </div>  
-            </div> -->  
+                        </div>                
+                    </div>  -->
+            </div>  
         </div>
     </div>
 @stop

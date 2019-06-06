@@ -182,7 +182,7 @@ class VistasController extends Controller
         $dbListaComentarios=null;
         if($request->idCapitulo)
         {
-            $dbListaComentarios = DB::table('tbl_comentario')->select()
+            $dbListaComentarios = DB::table('vComentario')->select()
             ->where('idCapitulo', $request->idCapitulo)->orderBy("created_at","desc")
             ->get();
         }

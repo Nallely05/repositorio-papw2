@@ -23,7 +23,7 @@
                     <span class="ir-arriba"></span>
                 <div class="text-center">
                 <input type="hidden"value="{{$capituloAleer->getIdCapitulo()}}" name="idObraPerteneciente">
-                      <img src="{{url('img/cap?id='.$capituloAleer->getIdCapitulo())}}" width="500" height="300" alt="..." class="rounded mx-auto d-block"><br>
+                      <img src="{{url('img/cap?id='.$capituloAleer->getIdCapitulo())}}" width="500" height="600" alt="..." class="rounded mx-auto d-block"><br>
                       <div class="container">
                             <h3 class="card-title">{{$capituloAleer->getTituloCapitulo()}}</h3><br>
                             <a href="/perfil"><h6 class="card-title">{{$capituloAleer->getTituloCapitulo()}}</h6></a><br>
@@ -39,7 +39,7 @@
            
    
 
-    <!--Paginación-->
+    <!--Paginación
     <nav aria-label="Page navigation example">
             <ul class="pagination justify-content-end">
               <li class="page-item disabled">
@@ -52,7 +52,7 @@
                 <a class="page-link" href="#">Siguiente</a>
               </li>
             </ul>
-    </nav>
+    </nav>-->
 
     <!--COMENTARIOS-->
     <div class="card-body">
@@ -71,7 +71,7 @@
 
                                     <div class="row">
                                         <div class="col"><!--Espacio para foto de perfil-->
-                                            <img src="../Images/Perfil.jpg" class="align-self-start mr-3" width="100" height="100" alt="...">
+                                            <img src="img/perfil?id={{\Auth::user()->id}}" class="FotoDePerfil2" width="150" height="150" alt="...">
                                         </div>
                                         <div class="col-6"><!--Espacio para Comentario-->
                                         <form  method="POST" action="/comentar">
@@ -171,35 +171,28 @@ function getListComentarios()
             data:dataToSend,
             dataType: 'json',
             success: function (respuesta) {
-             
+             debugger;
               $("#listaComentarios").text("");
                for(var i=0; i < respuesta.length;i++)
                {
                 var coment="<div class='container' style='margin-top:8px; margin-bottom:8px;'><div class='card card-body'> <div class='container'><div class='row'id='comentarios'>"+
                                         "<div class='col'>"+
-                                        "<img src='' class='align-self-start mr-3' width='100' height='100' alt='...'>"+
+                                        "<img src='img/perfil?id="+ respuesta[i].idUsuario+"' class='FotoDePerfil2'  width='150' height='150' alt='...'>"+
                                         "</div>"+
                                         "<div class='col-6'>"+
                                             "<div class='media'>"+
                                                     "<div class='media-body'>"+
-                                                        "<a class='nav-link' href='/perfil'><h5 class='mt-0'></h5></a>"+
+                                                        "<a class='nav-link' href='/perfil'><h5 class='mt-0'>"+ respuesta[i].name+"</h5></a>"+
                                                         "<p>"+respuesta[i].comentario+"</p>"+
                                                     "</div>"+
                                             "</div>"+
                                         "</div>"+
                                         "<div class='col'><!--Espacio para opciones-->"+
-                                            "<div class='dropdown'>"+
-                                                "<button class='btn btn-secondary dropdown-toggle' type='button' id='dropdownMenuButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>"+
-                                                        "<i class='fas fa-ellipsis-h'></i>"+
-                                                "</button>"+
-                                                "<div class='dropdown-menu' aria-labelledby='dropdownMenuButton'>"+
-                                                    "<a class='dropdown-item' href='#'>Denunciar comentario</a>"+
-                                                "</div>"+
-                                            "</div>"+ 
+                                        "<p>"+respuesta[i].antiguedad+"</p>"+
                                         "</div>"+
                                 "</div></div></div></div>";
                                 $("#listaComentarios").append(coment);
-               }
+                                debugger;}
               
             },
             error: function (x, h, r) {
