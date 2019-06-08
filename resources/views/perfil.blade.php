@@ -187,7 +187,7 @@
   <br>
   <h5><pre> Nombre:{{$nombreUsuario}}</pre></h5>
   <pre>
-  <iframe width="319" height="180" src="https://www.youtube.com/embed/nt9c0UeYhFc?list=LLfc3W4Rn1jpBLR4U7qns2Bw" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+   <!--<iframe width="319" height="180" src="https://www.youtube.com/embed/nt9c0UeYhFc?list=LLfc3W4Rn1jpBLR4U7qns2Bw" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
   </pre> <!-- Nombre: Nallely Alfano Saldaña
     Edad: 22 años
     Descripción: Dibujante y escritora en tiempo libre.-->                      

@@ -68,7 +68,8 @@ class RegisterController extends Controller
             'email'=>$data['email'],
             'password'=>Hash::make($data['password']),
             'imagenPerfil'=>'public/default/imagenPerfilDefault.png',
-            'imagenPortada'=>'public/default/imagenPortadaDefault.png'
+            'imagenPortada'=>'public/default/imagenPortadaDefault.png',
+            'fechaCumple'=>$data['fechaNacimiento']
             ]);
     }
 }

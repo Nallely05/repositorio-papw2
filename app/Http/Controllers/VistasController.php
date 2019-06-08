@@ -99,8 +99,11 @@ class VistasController extends Controller
         if($request->idObra)
         {
             $idObra=$request->idObra;
-
-            $dbCapituloAleer=DB::table('tbl_capitulo')->select()->where('idObra',$idObra)->first();
+            $idCap=$request->idCap;
+            if($idCap)
+                $dbCapituloAleer=DB::table('vCapitulo')->select()->where('idObra',$idObra)->where('idCapitulo',$idCap)->first();
+            else
+                $dbCapituloAleer=DB::table('vCapitulo')->select()->where('idObra',$idObra)->first();
             if($dbCapituloAleer)
             {
                 $mCap=new modelCapitulo();
@@ -111,6 +114,10 @@ class VistasController extends Controller
                 $mCap->setContenidoCapitulo($dbCapituloAleer->contenidoCapitulo);
                 $mCap->setCreated_at($dbCapituloAleer->created_at);
                 $mCap->setUpdateded_at($dbCapituloAleer->updated_at);
+                $mCap->setAntiguedad($dbCapituloAleer->antiguedad);
+                $mCap->setTituloObra($dbCapituloAleer->tituloObra);
+                $mCap->setIdUsuario($dbCapituloAleer->id);
+                $mCap->setAutor($dbCapituloAleer->name);
                 //return dd(\Auth::user()->name);
                 return view('lectura')->with('capituloAleer',$mCap); 
 

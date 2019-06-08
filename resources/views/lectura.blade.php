@@ -2,61 +2,59 @@
 @section('title','Capítulo')
 @section('contenido')
 <!--CONTENIDO-->
-<div class="container-fluid">
-             <!--Opciones CAPÍTULO-->
-               <br> 
-                            <button class="btn-LecturaCaps btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Capítulos
-                            </button>
+ <!--Progress Bar-->
+<div class="headerProgressBar">
+        <div class="progress-container">
+            <div class="progress-bar" id="myBar"></div>
+        </div>   
+    </div>
+    <span class="ir-arriba"></span>
 
-                            <div class="dropdown-menu" id="dropCapitulos">
-                            </div> 
-            <!--Progress Bar-->
-            <div class="headerProgressBar">
-                <div class="progress-container">
-                    <div class="progress-bar" id="myBar"></div>
-                </div>   
-            </div>
-                <!--CAPÍTULO-->
-                
-            <div class="card-body">
-                    <span class="ir-arriba"></span>
-                <div class="text-center">
-                <input type="hidden"value="{{$capituloAleer->getIdCapitulo()}}" name="idObraPerteneciente">
-                      <img src="{{url('img/cap?id='.$capituloAleer->getIdCapitulo())}}" width="500" height="600" alt="..." class="rounded mx-auto d-block"><br>
-                      <div class="container">
-                            <h3 class="card-title">{{$capituloAleer->getTituloCapitulo()}}</h3><br>
-                            <a href="/perfil"><h6 class="card-title">{{$capituloAleer->getTituloCapitulo()}}</h6></a><br>
-                            <div class="row justify-content-md-center">
-                            <p class="col-md-10 mb-5" style="text-align: justify; text-justify: inter-word;">{{$capituloAleer->getContenidoCapitulo()}}</p><div class="gridcontent" style="background-color:#ffffff;"></div>
-                           
-                        </div>
+<div class="container-fluid">
+    <button onclick="topFunction()" id="myBtnUp" title="Subir a inicio de página"><i class="fas fa-arrow-up"></i></button>
+
+    <div class="row">
+        <!--Opciones CAPÍTULO izquierda-->
+        <div class="col-lg-2">
+            <br> 
+            <h4><a href="/lectura?idObra={{$capituloAleer->getIdObra()}}">"{{$capituloAleer->getTituloObra()}}"</a><h4><br>
+            <button class="btn-LecturaCaps btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Capítulos
+            </button>
+
+            <div class="dropdown-menu" id="dropCapitulos">
+            </div> 
+        </div> 
+        <!--CAPÍTULO EN MEDIO-->
+        <div class="col-lg-8">
+                <div class="card-body">
+                    <div class="text-center">
+                            <input type="hidden"value="{{$capituloAleer->getIdCapitulo()}}" name="idObraPerteneciente">
+                            <img src="{{url('img/cap?id='.$capituloAleer->getIdCapitulo())}}" width="500" height="600" alt="..." class="rounded mx-auto d-block"><br>
+                            <div class="container">
+                                <h2 class="card-title">{{$capituloAleer->getTituloCapitulo()}}</h2><br>
+                                <h6 style="color:black;">{{$capituloAleer->getAntiguedad()}}</h6><br>
+                                <hr>
+                                <div class="row justify-content-md-center">
+                                    <p class="col-md-10 mb-5" style="text-align: justify; text-justify: inter-word;">{{$capituloAleer->getContenidoCapitulo()}}</p><div class="gridcontent" style="background-color:#ffffff;"></div>
+                                </div>
+                            </div>
                     </div>
                 </div>
-            </div>
-            <button onclick="topFunction()" id="myBtnUp" title="Subir a inicio de página"><i class="fas fa-arrow-up"></i></button>
-        </div><!--CONTENIDO-->
-           
-   
-
-    <!--Paginación
-    <nav aria-label="Page navigation example">
-            <ul class="pagination justify-content-end">
-              <li class="page-item disabled">
-                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Anterior</a>
-              </li>
-              <li class="page-item"><a class="page-link" href="#">1</a></li>
-              <li class="page-item"><a class="page-link" href="#">2</a></li>
-              <li class="page-item"><a class="page-link" href="#">3</a></li>
-              <li class="page-item">
-                <a class="page-link" href="#">Siguiente</a>
-              </li>
-            </ul>
-    </nav>-->
+        </div>
+         <!--DERECHA-->
+        <div class="col-lg-2">
+        <img src="img/perfil?id={{$capituloAleer->getIdUsuario()}}" class="FotoDePerfil2 mx-auto d-block" width="100" height="100" alt="..."><br>
+        <a href="/perfil/{{$capituloAleer->getIdUsuario()}}"><h4 class="text-center">{{$capituloAleer->getAutor()}}</h4></a><br>
+        </div>
+    </div>
+</div>
+        <!--CONTENIDO-->
 
     <!--COMENTARIOS-->
     <div class="card-body">
         <div class="container-fluid">
+            <hr>
             <button class="btnComentarios" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                 Comentarios <i class="fas fa-sort-down"></i>
             </button>
@@ -94,35 +92,6 @@
                     </div> @endguest
               <!--EjemploComentario-->
                 <div id="listaComentarios"></div>
-                      <!--<div class="container">
-                    <div class="card card-body">             
-                        <div class="container">
-                                <div class="row"id="comentarios">
-                                        <div class="col">
-                                        <img src="../Images/Perfil2.jpg" class="align-self-start mr-3" width="100" height="100" alt="...">
-                                        </div>
-                                        <div class="col-6">
-                                            <div class="media">
-                                                    <div class="media-body">
-                                                        <a class="nav-link" href="/perfil"><h5 class="mt-0">Usuaria Registrada</h5></a>
-                                                        <p>Gran capítulo ¡Espero la continuación!</p>
-                                                    </div>
-                                            </div>
-                                        </div>
-                                        <div class="col">
-                                            <div class="dropdown">
-                                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                        <i class="fas fa-ellipsis-h"></i>
-                                                </button>
-                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                    <a class="dropdown-item" href="#">Denunciar comentario</a>
-                                                </div>
-                                            </div> 
-                                        </div>
-                                </div>
-                        </div>
-                    </div>
-                </div>-->
             </div>
         </div>
     </div>
@@ -144,7 +113,7 @@ $(document).ready(function(){
             success: function (respuesta) {
                for(var i=0; i < respuesta.length;i++)
                {
-                var noC="/lectura?idObra="+respuesta[i].idObra;
+                var noC="/lectura?idObra="+respuesta[i].idObra+"&idCap="+respuesta[i].idCapitulo;
               //  var x = "/perfil/" + respuesta[i].idUsuarioSeguido;
                 // $("#profile").append("<a href='"+x+"'><img src='../Images/Nai.jpg' alt='...' class='FotoDePerfil2 shadow p-3'></a>");
                 $("#dropCapitulos").append("<a class='dropdown-item' href='"+noC+"'>Capítulo"+(i+1)+"</a>");
@@ -182,7 +151,7 @@ function getListComentarios()
                                         "<div class='col-6'>"+
                                             "<div class='media'>"+
                                                     "<div class='media-body'>"+
-                                                        "<a class='nav-link' href='/perfil'><h5 class='mt-0'>"+ respuesta[i].name+"</h5></a>"+
+                                                        "<a class='nav-link' href='/perfil/"+ respuesta[i].idUsuario+"'><h5 class='mt-0'>"+ respuesta[i].name+"</h5></a>"+
                                                         "<p>"+respuesta[i].comentario+"</p>"+
                                                     "</div>"+
                                             "</div>"+

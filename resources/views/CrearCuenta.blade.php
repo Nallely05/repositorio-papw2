@@ -11,51 +11,43 @@
                 @csrf
                     <div class="form-row">
                         <section class="container">
-                        <div class="col-md-5 mb-3">
-                            <label for="validationServer01">Nombre</label>
-                            <input type="text" class="form-control" name="name" id="validationServer01" placeholder="Nombre de usuario" required>
-                            <!--<div class="valid-feedback">
-                              Looks good!
-                            </div>-->
+                        <div class="col-md-6 mb-3">
+                            <label for="nombreUsuario">Nombre</label>
+                            <input type="text" class="form-control" name="name" id="nombreUsuario" placeholder="Nombre de usuario" value="{{old('name')}}" required>
+                           
                         </div>
 
-                        <div class="col-md-5 mb-3">
-                            <label for="validationServerUsername">Correo electrónico</label>
+                        <div class="col-md-6 mb-3">
+                            <label for="correo">Correo electrónico</label>
                             <div class="input-group">
-                              <input type="text" class="form-control" id="validationServerUsername" name="email" placeholder="Correo electrónico" aria-describedby="inputGroupPrepend3" required>
-                             <!-- @if ($errors->has('email'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif-->
-                             
+                              <input type="email" class="form-control" id="correo" name="email" placeholder="Correo electrónico" aria-describedby="inputGroupPrepend3" value="{{old('email')}}" required>
                             </div>
                         </div>
-                         <!--Intento de edad -->
-                         <div class="col-md-3 mb-2">
-                         <label for="validationServer01">Fecha de nacimiento:</label><br>
-                         <input type="date">
+                        @if ($errors->has('email'))
+                        <div class="col-md-6 mb-3">
+                            <strong style="color:red;">Correo ya registrado</strong>
                         </div>
-                        <!-- Original-->
-                         <!-- 
-                        <div class="col-md-3 mb-2">
-                                <label for="validationServer01">Edad</label>
-                                <input type="number" class="form-control" id="validationServer01" placeholder="Edad">
-                            </div>-->
-                         <!--Termina original -->
-                        <div class="col-md-8 mb-3">
+                          @endif
+                         <div class="col-md-4 mb-2">
+                         <label for="fechaCumple">Fecha de nacimiento:</label><br>
+                         <input type="date" id="fechaCumple" class="form-control" name="fechaNacimiento" value="{{old('fechaNacimiento')}}">
+                        </div>
+                       
+                        <div class="col-md-6 mb-3">
                             <div class="form-group">
-                                <label for="exampleInputPassword1">Contraseña</label>
-                                <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Contraseña">
+                                <label for="contra">Contraseña (Mínimo 6 caracteres)</label>
+                                <input type="password" class="form-control" id="contra" name="password" placeholder="Contraseña" value="{{old('password')}}">
                             </div>
                         </div>
-
-                        <div class="col-md-8 mb-3">
+                        <div id="errorContra" class="col-md-6 mb-3">
+                            <strong id="errorText" class="text-danger">Mínimo 6 caracteres</strong>
+                        </div>
+                        <div class="col-md-6 mb-3">
                                 <div class="form-group">
-                                    <label for="exampleInputPassword1">Confirmar contraseña</label>
-                                    <input type="password" class="form-control" id="exampleInputPassword1" name="password_confirmation" placeholder="Contraseña">
+                                    <label for="confirmarContra">Confirmar contraseña</label>
+                                    <input type="password" class="form-control" id="confirmarContra" name="password_confirmation" placeholder="Contraseña" value="{{old('password_confirmation')}}">
                                     <br>
-                                    <button type="submit" class="btn btn-primary" onclick="window.location.href='/perfil'">Crear cuenta</button>
+                                    <button type="submit" class="btn btn-primary" id="crearUsuario" disabled>Crear cuenta</button>
                                 </div>
                         </div>
                         </section>
@@ -64,4 +56,39 @@
                 </form>
     </div>
     </div>
+
+    <script>
+    $(document).ready(function(){
+        $("#errorContra").hide();
+    function validarContra(){
+        if($("#contra").val()==$("#confirmarContra").val() && $("#correo").val()!="" && $("#nombreUsuario").val()!="" && $("#fechaCumple").val()!="")
+        {
+            if($("#confirmarContra").val().length>=6)
+            {
+                $("#crearUsuario").removeAttr("disabled");
+                $("#errorContra").hide();
+            }
+            else
+            {
+                $("#errorContra").show();
+            }
+        }
+        else
+        {
+            $("#errorContra").show();
+            $("#crearUsuario").attr("disabled","disabled");
+           
+        }
+        
+            $("#errorText").text("Tienes: "+$("#contra").val().length+" caracteres");
+    }
+        $("#contra").keyup(function(){
+        validarContra();
+        });
+        $("#confirmarContra").keyup(function(){
+        validarContra();
+        });
+       
+    });
+    </script>
 @stop

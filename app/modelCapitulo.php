@@ -15,6 +15,38 @@ class modelCapitulo extends Model
     protected $created_at;
     protected $updated_at;
 
+
+    protected $view= "vCapitulo";
+    protected $antiguedad;
+    protected $tituloObra;
+    protected $idUsuario;
+    protected $autor;
+
+    public function getAntiguedad()
+    {return $this->antiguedad;}
+ 
+    public function setAntiguedad($antiguedad)
+    { $this->antiguedad=$antiguedad;}
+
+    public function getTituloObra()
+    {return $this->tituloObra;}
+ 
+    public function setTituloObra($tituloObra)
+    { $this->tituloObra=$tituloObra;}
+
+    public function getIdUsuario()
+    {return $this->idUsuario;}
+ 
+    public function setIdUsuario($idUsuario)
+    { $this->idUsuario=$idUsuario;}
+
+    public function getAutor()
+    {return $this->autor;}
+ 
+    public function setAutor($autor)
+    { $this->autor=$autor;}
+
+
     public function __constructor(){}
         public function getIdCapitulo()
         {return $this->idCapitulo;}
