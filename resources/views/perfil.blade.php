@@ -1,8 +1,6 @@
 @extends('layouts.master')
 @section('title','Perfil')
 @section('contenido')
-
-
 <br>
     <div class="container-fluid">
         <div class="card">
@@ -274,10 +272,32 @@
         </div>
     </div>
        
-<script type="text/javascript" src="../js/bootstrap.js">
+ <script>
+        $(document).ready(function()
+        {
+            // Instance the tour
+            var tour = new Tour({
+                steps: [
+                    {
+                        element: "#dropdownMenuButton",
+                        title: "Title of my step",
+                        content: "Content of my step"
+                    },
+                    {
+                        element: "#btnCrearHistoria",
+                        title: "Title of my step",
+                        content: "Content of my step"
+                    }
+                ]
+            });
 
+            // Initialize the tour
+            tour.init();
 
-</script>
+            // Start the tour
+            tour.start();
+        });
+    </script>
 <script>
 $(document).ready(function(){
     
@@ -329,27 +349,8 @@ $(document).ready(function(){
     }
     getSeguidores(); 
 
-// Instance the tour
-var tour = new Tour({
-  steps: [
-  {
-    element: "#dropdownMenuButton",
-    title: "Opciones de sesión",
-    content: "Da click aquí para ir a tu perfil o cerrar sesión"
-  },
-  {
-    element: "#fotoPerfil",
-    title: "Foto de perfil",
-    content: "Aquí puedes cambiar la foto de perfil."
-  }
-]});
-
-// Initialize the tour
-tour.init();
-
-// Start the tour
-tour.start();
 });
 
 </script>
+
 @stop
