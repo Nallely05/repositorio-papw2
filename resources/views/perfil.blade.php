@@ -280,27 +280,27 @@
 </script>
 <script>
 $(document).ready(function(){
-  
-$("#fileUpload").hide();
-$("#editFotoPerfil").hide();
-$("#cambiarPortada").hide();
-
-$("#fotoPerfil").hover(function(){
-  $("#editFotoPerfil").show();
-  $("#cambiarPortada").hide();
-});
-
-$("#fotoPortada").hover(function(){
-  $("#editFotoPerfil").hide();
-  $("#cambiarPortada").show();
-});
-
-$("#no-hover").hover(function(){
+    
+  $("#fileUpload").hide();
   $("#editFotoPerfil").hide();
   $("#cambiarPortada").hide();
-});
 
-  function getSeguidores()
+  $("#fotoPerfil").hover(function(){
+    $("#editFotoPerfil").show();
+    $("#cambiarPortada").hide();
+  });
+
+  $("#fotoPortada").hover(function(){
+    $("#editFotoPerfil").hide();
+    $("#cambiarPortada").show();
+  });
+
+  $("#no-hover").hover(function(){
+    $("#editFotoPerfil").hide();
+    $("#cambiarPortada").hide();
+  });
+
+    function getSeguidores()
     {
       var dataToSend = {
         id:{{$id}}
@@ -328,6 +328,27 @@ $("#no-hover").hover(function(){
         });
     }
     getSeguidores(); 
+
+// Instance the tour
+var tour = new Tour({
+  steps: [
+  {
+    element: "#dropdownMenuButton",
+    title: "Opciones de sesión",
+    content: "Da click aquí para ir a tu perfil o cerrar sesión"
+  },
+  {
+    element: "#fotoPerfil",
+    title: "Foto de perfil",
+    content: "Aquí puedes cambiar la foto de perfil."
+  }
+]});
+
+// Initialize the tour
+tour.init();
+
+// Start the tour
+tour.start();
 });
 
 </script>
