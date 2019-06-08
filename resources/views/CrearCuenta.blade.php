@@ -59,6 +59,8 @@
 
     <script>
     $(document).ready(function(){
+        localStorage.setItem("tour_end","no");
+        localStorage.setItem("tour_current_step",1);
         $("#errorContra").hide();
     function validarContra(){
         if($("#contra").val()==$("#confirmarContra").val() && $("#correo").val()!="" && $("#nombreUsuario").val()!="" && $("#fechaCumple").val()!="")

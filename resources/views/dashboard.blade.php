@@ -3,11 +3,14 @@
 @section('contenido')
 <!--CONTENIDO-->
 <br>
+@if(isset($MismoGenero))
+@if(count ($MismoGenero)>0)
   <div class="container-fluid">
   <div class="card"><!--RESULTADOS-->
             <div class="card-body">
                     <h2>Actualizaciones de las personas que sigues:</h2>
                     <div class="mx-auto container" style="width:100%; ">
+                 
                         @foreach($MismoGenero as $mismoG)
                             <div class="card-body">
                                     <div class="card mb-3" style="max-width: 540px; margin:auto;">
@@ -35,7 +38,8 @@
             </div>
         </div>
 </div>
-    
+@endif
+@endif
                
 <br>
 <div class="container-fluid">

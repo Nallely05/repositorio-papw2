@@ -226,6 +226,57 @@
             // Instance the tour
             var tour = new Tour({
                 steps: [
+                  {
+                        element: "#btnParaDashboard",
+                        title: "Inicio",
+                        content: "Has click aquí para ir al inicio.",
+                        placement: "auto",
+                        template: "<div class='popover tour' style='min-width:300px;'>"+
+                        "<div class='arrow'></div>"+
+                        "<h3 class='popover-title'></h3>"+
+                        "<div class='popover-content'></div>"+
+                        "<div class='popover-navigation'>"+
+                            "<button class='btn btn-default' data-role='prev'>« Anterior</button>"+
+                            "<span data-role='separator'></span>"+
+                            "<button class='btn btn-default' data-role='next' style='color:rgb(102, 59, 201);'>Siguiente »</button>"+
+                            "<button class='btn btn-default' data-role='end'>Finalizar</button>"+
+                        "</div>"+
+                        "</div>"
+                    },
+                    {
+                        element: "#inputBuscar",
+                        title: "Buscar",
+                        content: "Buscar historias por su título.",
+                        placement: "auto",
+                        template: "<div class='popover tour' style='min-width:300px;'>"+
+                        "<div class='arrow'></div>"+
+                        "<h3 class='popover-title'></h3>"+
+                        "<div class='popover-content'></div>"+
+                        "<div class='popover-navigation'>"+
+                            "<button class='btn btn-default' data-role='prev'>« Anterior</button>"+
+                            "<span data-role='separator'></span>"+
+                            "<button class='btn btn-default' data-role='next' style='color:rgb(102, 59, 201);'>Siguiente »</button>"+
+                            "<button class='btn btn-default' data-role='end'>Finalizar</button>"+
+                        "</div>"+
+                        "</div>"
+                    },
+                    {
+                        element: "#btnBuscar",
+                        title: "Buscar",
+                        content: "Este botón te redirige a la ventana de buscar o busca lo que ingresaste en el recuadro.",
+                        placement: "auto",
+                        template: "<div class='popover tour' style='min-width:300px;'>"+
+                        "<div class='arrow'></div>"+
+                        "<h3 class='popover-title'></h3>"+
+                        "<div class='popover-content'></div>"+
+                        "<div class='popover-navigation'>"+
+                            "<button class='btn btn-default' data-role='prev'>« Anterior</button>"+
+                            "<span data-role='separator'></span>"+
+                            "<button class='btn btn-default' data-role='next' style='color:rgb(102, 59, 201);'>Siguiente »</button>"+
+                            "<button class='btn btn-default' data-role='end'>Finalizar</button>"+
+                        "</div>"+
+                        "</div>"
+                    },
                     {
                         element: "#dropdownMenuButton",
                         title: "Opciones de sesión",
