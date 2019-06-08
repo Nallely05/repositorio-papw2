@@ -280,13 +280,122 @@
                 steps: [
                     {
                         element: "#dropdownMenuButton",
-                        title: "Title of my step",
-                        content: "Content of my step"
+                        title: "Opciones de sesión",
+                        content: "Da click aquí para ir al perfil o cerrar sesión.",
+                        placement: "auto",
+                        template: "<div class='popover tour' style='min-width:300px;'>"+
+                        "<div class='arrow'></div>"+
+                        "<h3 class='popover-title'></h3>"+
+                        "<div class='popover-content'></div>"+
+                        "<div class='popover-navigation'>"+
+                            "<button class='btn btn-default' data-role='prev'>« Anterior</button>"+
+                            "<span data-role='separator'></span>"+
+                            "<button class='btn btn-default' data-role='next' style='color:rgb(102, 59, 201);'>Siguiente »</button>"+
+                            "<button class='btn btn-default' data-role='end'>Finalizar</button>"+
+                        "</div>"+
+                        "</div>"
+                    },
+                    {
+                        element: "#fotoPortada",
+                        title: "Foto de portada",
+                        content: "Aquí puedes pasar el mouse para cambiar la foto de portada.",
+                        placement: "left",
+                        template: "<div class='popover tour' style='min-width:300px;'>"+
+                        "<div class='arrow'></div>"+
+                        "<h3 class='popover-title'></h3>"+
+                        "<div class='popover-content'></div>"+
+                        "<div class='popover-navigation'>"+
+                            "<button class='btn btn-default' data-role='prev'>« Anterior</button>"+
+                            "<span data-role='separator'></span>"+
+                            "<button class='btn btn-default' data-role='next' style='color:rgb(102, 59, 201);'>Siguiente »</button>"+
+                            "<button class='btn btn-default' data-role='end'>Finalizar</button>"+
+                        "</div>"+
+                        "</div>"
+                    },
+                    {
+                        element: "#fotoPerfil",
+                        title: "Foto de perfil",
+                        content: "Aquí puedes cambiar la foto de perfil.",
+                        placement: "right",
+                        template: "<div class='popover tour' style='min-width:300px;'>"+
+                        "<div class='arrow'></div>"+
+                        "<h3 class='popover-title'></h3>"+
+                        "<div class='popover-content'></div>"+
+                        "<div class='popover-navigation'>"+
+                            "<button class='btn btn-default' data-role='prev'>« Anterior</button>"+
+                            "<span data-role='separator'></span>"+
+                            "<button class='btn btn-default' data-role='next' style='color:rgb(102, 59, 201);'>Siguiente »</button>"+
+                            "<button class='btn btn-default' data-role='end'>Finalizar</button>"+
+                        "</div>"+
+                        "</div>"
                     },
                     {
                         element: "#btnCrearHistoria",
-                        title: "Title of my step",
-                        content: "Content of my step"
+                        title: "Crear Historia",
+                        content: "Da click aquí para comenzar a crear historias.",
+                        placement: "left",
+                        template: "<div class='popover tour' style='min-width:300px;'>"+
+                        "<div class='arrow'></div>"+
+                        "<h3 class='popover-title'></h3>"+
+                        "<div class='popover-content'></div>"+
+                        "<div class='popover-navigation'>"+
+                            "<button class='btn btn-default' data-role='prev'>« Anterior</button>"+
+                            "<span data-role='separator'></span>"+
+                            "<button class='btn btn-default' data-role='next' style='color:rgb(102, 59, 201);'>Siguiente »</button>"+
+                            "<button class='btn btn-default' data-role='end'>Finalizar</button>"+
+                        "</div>"+
+                        "</div>"
+                    },
+                    {
+                        element: "#home-tab",
+                        title: "Información de Usuario",
+                        content: "Aquí puedes consultar la información del usuario.",
+                        placement: "right",
+                        template: "<div class='popover tour' style='min-width:300px;'>"+
+                        "<div class='arrow'></div>"+
+                        "<h3 class='popover-title'></h3>"+
+                        "<div class='popover-content'></div>"+
+                        "<div class='popover-navigation'>"+
+                            "<button class='btn btn-default' data-role='prev'>« Anterior</button>"+
+                            "<span data-role='separator'></span>"+
+                            "<button class='btn btn-default' data-role='next' style='color:rgb(102, 59, 201);'>Siguiente »</button>"+
+                            "<button class='btn btn-default' data-role='end'>Finalizar</button>"+
+                        "</div>"+
+                        "</div>"
+                    },
+                    {
+                        element: "#profile-tab",
+                        title: "Siguiendo",
+                        content: "Aquí puedes ver a los usuarios que sigues.",
+                        placement: "right",
+                        template: "<div class='popover tour' style='min-width:300px;'>"+
+                        "<div class='arrow'></div>"+
+                        "<h3 class='popover-title'></h3>"+
+                        "<div class='popover-content'></div>"+
+                        "<div class='popover-navigation'>"+
+                            "<button class='btn btn-default' data-role='prev'>« Anterior</button>"+
+                            "<span data-role='separator'></span>"+
+                            "<button class='btn btn-default' data-role='next' style='color:rgb(102, 59, 201);'>Siguiente »</button>"+
+                            "<button class='btn btn-default' data-role='end'>Finalizar</button>"+
+                        "</div>"+
+                        "</div>"
+                    },
+                    {
+                        element: "#contact-tab",
+                        title: "Biblioteca",
+                        content: "Aquí puedes ver las obras que publiques.",
+                        placement: "right",
+                        template: "<div class='popover tour' style='min-width:300px;'>"+
+                        "<div class='arrow'></div>"+
+                        "<h3 class='popover-title'></h3>"+
+                        "<div class='popover-content'></div>"+
+                        "<div class='popover-navigation'>"+
+                            "<button class='btn btn-default' data-role='prev'>« Anterior</button>"+
+                            "<span data-role='separator'></span>"+
+                            "<button class='btn btn-default' data-role='next' style='color:rgb(102, 59, 201);'>Siguiente »</button>"+
+                            "<button class='btn btn-default' data-role='end'>Finalizar</button>"+
+                        "</div>"+
+                        "</div>"
                     }
                 ]
             });
