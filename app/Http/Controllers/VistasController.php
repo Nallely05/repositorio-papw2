@@ -55,7 +55,7 @@ class VistasController extends Controller
 
         //echo $actualizaciones[0]->tituloObra;
         //echo var_dump($actualizaciones);
-        $dbMismoGenero=DB::table('vDashboard')->select()->get();
+        $dbMismoGenero=DB::table('VDashboardSeguir')->select()->where('idUsuarioSeguidor',\Auth::user()->id)->get();
         $mismoGenero=array();
         foreach($dbMismoGenero as $mismoG)
         {
@@ -79,6 +79,10 @@ class VistasController extends Controller
              $mAct->setNombreAdvertencia($mismoG->nombreAdvertencia);
              $mAct->setAntiguedad($mismoG->antiguedad);
              $mAct->setNombrePublicando($mismoG->name);
+
+            //vDashboardSeguidor
+            $mAct->setIdUsuarioSeguido($mismoG->idUsuarioSeguido);
+            $mAct->setIdUsuarioSeguidor($mismoG->idUsuarioSeguidor);
 
             array_push($mismoGenero,$mAct);
         }

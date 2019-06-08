@@ -44,29 +44,27 @@
         </div>
          <!--DERECHA-->
         <div class="col-lg-2">
-        <img src="img/perfil?id={{$capituloAleer->getIdUsuario()}}" class="FotoDePerfil2 mx-auto d-block" width="100" height="100" alt="..."><br>
-        <a href="/perfil/{{$capituloAleer->getIdUsuario()}}"><h4 class="text-center">{{$capituloAleer->getAutor()}}</h4></a><br>
+            <img src="img/perfil?id={{$capituloAleer->getIdUsuario()}}" class="FotoDePerfil2 mx-auto d-block" width="100" height="100" alt="..."><br>
+            <a href="/perfil/{{$capituloAleer->getIdUsuario()}}"><h4 class="text-center">{{$capituloAleer->getAutor()}}</h4></a><br>
         </div>
     </div>
 </div>
         <!--CONTENIDO-->
-
+    
     <!--COMENTARIOS-->
     <div class="card-body">
         <div class="container-fluid">
             <hr>
-            <button class="btnComentarios" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+            <!--<button class="btnComentarios" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                 Comentarios <i class="fas fa-sort-down"></i>
-            </button>
-            <div class="collapse" id="collapseExample">
-                <!--Intento nuevo comentario-->
+            </button>-->
+            <div  id="collapseExample">
                 @guest
                 <input type="hidden"id="idCap" value="{{$capituloAleer->getIdCapitulo()}}" name="idCapitulo">
                 @else
                 <div class="container">
                         <div class="card card-body">
                             <div class="container">
-
                                     <div class="row">
                                         <div class="col"><!--Espacio para foto de perfil-->
                                             <img src="img/perfil?id={{\Auth::user()->id}}" class="FotoDePerfil2" width="150" height="150" alt="...">
@@ -83,7 +81,7 @@
                                             </div>
                                             </div>
                                             <div class="col"><!--Espacio para opciones-->
-                                                <button type="button" id="btnComentar" class="btnEnviarComentario">Comentar</button>
+                                                <button type="button" id="btnComentar" class="btnEnviarComentario" style="margin-top: 50px;">Comentar</button>
                                             </div>
                                         </form>
                                     </div>

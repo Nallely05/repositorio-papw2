@@ -50,7 +50,7 @@
         
 <!-- Modal -->
 
-  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -61,7 +61,7 @@
         </div>
         <div class="modal-body">
         @guest
-        kjnknkn
+        
         @else
         <form id="formCrearHistoria" method="post" enctype= "multipart/form-data" action="/Obra"> <!-- FORM -->
         @csrf
@@ -131,11 +131,11 @@
 
 <!-- Modal 2-->
 
-<div class="modal fade" id="modal-cambiarFotoDePerfil" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal" id="modal-cambiarFotoDePerfil" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalCenterTitle">Cambiar foto de perfil</h5>
+          <h5 class="modal-title" id="exampleModalCenterTitle1">Cambiar foto de perfil</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -181,52 +181,16 @@
         <div class="tab-content" id="myTabContent">
 
         <!--Mi información-->
-<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+<div class="tab-pane show active" id="home" role="tabpanel" aria-labelledby="home-tab">
   <br>
   <h5><pre> Nombre:{{$nombreUsuario}}</pre></h5>
-  <pre>
-   <!--<iframe width="319" height="180" src="https://www.youtube.com/embed/nt9c0UeYhFc?list=LLfc3W4Rn1jpBLR4U7qns2Bw" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
-  </pre> <!-- Nombre: Nallely Alfano Saldaña
-    Edad: 22 años
-    Descripción: Dibujante y escritora en tiempo libre.-->                      
-    <!---->
-  @if(isset($Yo))
-  <!--<a href="/politica">&nbsp;Editar información</a>-->
-  <!-- Button trigger modal 
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalEditarInfo">Editar información</button>-->
-  @endif
 </div>
-
-<div class="modal fade" id="modalEditarInfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Información de perfil</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-  <form id="formEditarInfo" method="post" enctype= "multipart/form-data" action="/perfil"> @csrf
-        <h5>Nombre:</h5><input type="text"><br>
-        <h5>Correo:</h5><input type="text"><br>
-        <h5>Video:</h5><input type="text"><br>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-        <button type="submit" class="btn btn-primary">Guardar cambios</button>
-  </form>
-      </div>
-    </div>
-  </div>
-</div>
-
 
     <!--Siguiendo-->
-            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+            <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">
             </div>
   <!--Mi biblioteca-->
-<div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+<div class="tab-pane" id="contact" role="tabpanel" aria-labelledby="contact-tab">
         @if(isset($ObrasPublicadas))
         @foreach($ObrasPublicadas as $Obrasp)
         <div class="card-body">
@@ -253,26 +217,10 @@
               </div>@endforeach
               @endif
         </div>
-        
-          <!--ADMIN-->
-           <!--<div class="tab-pane fade" id="admin" role="tabpanel" aria-labelledby="admin-tab">
-              <br>
-              <h5 style="color:black;">(Esta pestaña solo se mostrará si el usuario es administrador)</h5><br>-->
-              <!--Reportes-->
-              <!--<div class="card" style="max-width: 26rem; border-color:#6f42c1;">
-                <div class="card-header"><a href="/lectura" style="color: rgb(143, 110, 219);">Título de capítulo con reporte</a></div>
-                  <div class="card-body">
-                    <h5 class="card-title"><a href="/perfil" style="color: rgb(143, 110, 219);">Nombre de usuario</a></h5>
-                    <p class="card-text">"Preview de comentario reportado"</p>
-                    <button type="submit" class="btn btn-primary" style="background-color: #66bb6a; border-style:none;">Descartar reporte</button> <button type="submit" class="btn btn-primary" style="background-color: #ef5350; border-style:none;">Eliminar comentario</button>
-                  </div>
-                </div>
-              </div>
-          </div>-->
         </div>
     </div>
        
- <script>
+    <script>
         $(document).ready(function()
         {
             // Instance the tour

@@ -26,7 +26,9 @@ protected $nombreAudiencia;
 protected $nombreAdvertencia;
 protected $antiguedad;
 protected $nombrePublicando;
-
+//Datos de vDashboardSeguidor
+protected $idUsuarioSeguido;
+protected $idUsuarioSeguidor;
 
 public function __constructor(){}
 
@@ -132,4 +134,16 @@ public function __constructor(){}
 
    public function setNombrePublicando($nombrePublicando)
    { $this->nombrePublicando=$nombrePublicando;}
+    //de vDashboard
+    public function getIdUsuarioSeguido()
+    {return $this->idUsuarioSeguido;}
+ 
+    public function setIdUsuarioSeguido($idUsuarioSeguido)
+    { $this->idUsuarioSeguido=$idUsuarioSeguido;}
+
+    public function getIdUsuarioSeguidor()
+    {return $this->idUsuarioSeguidor;}
+ 
+    public function setIdUsuarioSeguidor($idUsuarioSeguidor)
+    { $this->idUsuarioSeguidor=$idUsuarioSeguidor;}
 }
