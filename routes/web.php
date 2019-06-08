@@ -60,3 +60,5 @@ Route::get('/ListaCaps', 'VistasController@getListCaps');
 
 Route::get('/listaComentarios', 'VistasController@getListComentarios');
 Route::post('/comentar', 'VistasController@insertarComentario');
+
+Route::get('/correo', 'VistasController@enviarCorreoBienvenida');

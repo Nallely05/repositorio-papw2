@@ -7,6 +7,7 @@ use App\modelSeguir;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Mail;
 
 class VistasController extends Controller
 {
@@ -365,5 +366,24 @@ class VistasController extends Controller
     public function adminView()
     {
         return view('admin');
+    }
+public $variable;
+    public function enviarCorreoBienvenida(Request $request)
+    {
+        if($request->id)
+        {
+            $dbUsuario= DB::table("users")->select()->where("id",$request->id)->first();
+            if($dbUsuario)
+            {
+                $this->variable=$dbUsuario;
+                 \Mail::send("correo",array("usuario"=>$dbUsuario),function($message){
+                     $message->to($this->variable->email,$this->variable->name)->subject('Bienvenido a Hispanofic');
+                });
+                return response()->json(["enviarCorreo"=>true,"id"=>$dbUsuario->id,"correo"=>$dbUsuario->email,"name"=>$dbUsuario->name]);
+            }
+            else{return response()->json(["enviarCorreo"=>false]);}
+            
+        }
+        else{return response()->json(["enviarCorreo"=>false]);}
     }
 }

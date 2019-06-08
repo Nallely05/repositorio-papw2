@@ -457,6 +457,38 @@ $(document).ready(function(){
     }
     getSeguidores(); 
 
+
+    function enviarCorreo()
+    {
+      var dataToSend = {
+        id:{{Auth::user()->id}},
+        correo:"{{Auth::user()->email}}",
+        name:"{{Auth::user()->name}}"
+      };
+      $.ajax({
+            url: '/correo',
+            async: 'true',
+            type: 'GET',
+            data:dataToSend,
+            dataType: 'json',
+            success: function (respuesta) {
+             localStorage.setItem("sendMail", true);
+            },
+            error: function (x, h, r) {
+                alert("Error: " + x + h + r);
+            }
+        });
+    }
+
+     if(localStorage.getItem("sendMail")==null){
+       localStorage.setItem("sendMail",false);
+       enviarCorreo();
+     }
+
+     if(!localStorage.getItem("sendMail")){
+       enviarCorreo();
+     }
+  
 });
 
 </script>
